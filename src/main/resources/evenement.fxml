@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="317.0" prefWidth="293.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.front.evenementController">
+   <children>
+      <ImageView fx:id="imageview" fitHeight="139.0" fitWidth="280.0" layoutX="30.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+
+      </ImageView>
+      <Label fx:id="nomabonnLabel" layoutX="30.0" layoutY="203.0" prefHeight="24.0" prefWidth="119.0" text="Label">
+         <font>
+            <Font name="Lucida Bright" size="14.0" />
+         </font></Label>
+      <Label fx:id="typeabonnLabel" layoutX="29.0" layoutY="227.0" prefHeight="15.0" prefWidth="119.0" text="Label">
+         <font>
+            <Font name="Lucida Bright" size="14.0" />
+         </font></Label>
+      <Label fx:id="descriptionabonnLabel" layoutX="29.0" layoutY="271.0" prefHeight="24.0" prefWidth="119.0" text="Label">
+         <font>
+            <Font name="Lucida Bright" size="14.0" />
+         </font></Label>
+      <Label fx:id="dateabonnLabel" layoutX="29.0" layoutY="250.0" prefHeight="24.0" prefWidth="119.0" text="Label">
+         <font>
+            <Font name="Lucida Bright" size="14.0" />
+         </font></Label>
+      <Button fx:id="participerabonnButton" layoutX="28.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#participerabonn" prefHeight="26.0" prefWidth="69.0" style="-fx-background-radius: 30;" text="participer" />
+      <Label fx:id="nb_participantsLabel" layoutX="28.0" layoutY="298.0" text="Label">
+         <font>
+            <Font name="Lucida Bright" size="14.0" />
+         </font></Label>
+      <TextField fx:id="idabonnF" layoutX="102.0" layoutY="323.0" prefHeight="26.0" prefWidth="43.0" />
+      <TextField fx:id="iduserF" layoutX="150.0" layoutY="323.0" prefHeight="6.0" prefWidth="28.0" />
+      <Label fx:id="participantComplet" layoutX="28.0" layoutY="355.0" prefHeight="18.0" prefWidth="254.0" text="désolé nombre de participant est epuisé" textFill="#ff0000">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="annulerButton" layoutX="232.0" layoutY="323.0" mnemonicParsing="false" onAction="#annulerparticipant" style="-fx-background-radius: 30;" text="annuler" />
+      <TextField fx:id="idPartField" layoutX="185.0" layoutY="323.0" prefHeight="26.0" prefWidth="43.0" />
+      <Button fx:id="likeButton" layoutX="243.0" layoutY="262.0" mnemonicParsing="false" onAction="#annulerparticipant" style="-fx-background-radius: 30;" text="like" />
+      <Button fx:id="deslikeButton" layoutX="235.0" layoutY="203.0" mnemonicParsing="false" onAction="#annulerparticipant" style="-fx-background-radius: 30;" text="dislike" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,845 @@
+/* styles.css */
+/* commande css */
+#commandeButton {
+    -fx-background-color: #011528;
+    -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+}
+#commandeButton:hover {
+    -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+#exportButton {
+    -fx-background-color: #011528;
+    -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+}
+#exportButton:hover {
+    -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+#triReduction {
+    -fx-background-color: #011528;
+    -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+-fx-font-family: "Arial Black";
+   -fx-font-style: normal;
+     -fx-font-size: 12px;
+}
+#triReduction:hover {
+    -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+    -fx-font-family: "Arial Black";
+       -fx-font-style: normal;
+         -fx-font-size: 12px;
+}
+#trieDate {
+    -fx-background-color: #011528;
+    -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+-fx-font-family: "Arial Black";
+   -fx-font-style: normal;
+     -fx-font-size: 12px;
+}
+#trieDate:hover {
+    -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+    -fx-font-family: "Arial Black";
+       -fx-font-style: normal;
+         -fx-font-size: 12px;
+}
+.addbuttonPanier
+{    -fx-background-color: #011528;
+     -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+ -fx-font-family: "Arial Black";
+   -fx-font-style: normal;
+     -fx-font-size: 14px;
+
+}
+.addbuttonPanier:hover
+{   -fx-background-color: #f4874b;
+        -fx-text-fill: #011528;
+         -fx-font-family: "Arial Black";
+           -fx-font-style: normal;
+             -fx-font-size: 14px;
+
+}
+.product-label
+{
+  -fx-font-size: 14px;
+   -fx-font-family: "Arial Black";
+   -fx-font-style: normal;
+}
+#listView
+{
+    -fx-background-color:#FFFFFF;
+
+}
+.grid-pane-product
+{
+    -fx-background-color:transparent;
+}
+
+/* produit front office css */
+
+#ComboProduitC
+ {
+ -fx-font-weight: bold;
+  -fx-background-color: #011528;
+  -fx-text-fill: #f4874b;
+  -fx-font-size: 12px;
+  -fx-font-family: "Arial Black";
+  -fx-font-style: normal;
+}
+
+#ComboProduitC .list-view
+ {
+  -fx-text-fill: #f4874b;
+  -fx-font-weight: bold;
+  -fx-background-color: #011528;
+  -fx-font-size: 12px;
+  -fx-font-family: "Arial Black";
+  -fx-font-style: normal;
+  }
+
+#ComboProduitC .list-cell
+ {
+ -fx-text-fill: #f4874b;
+ -fx-font-weight: bold;
+ -fx-background-color: #011528;
+ -fx-font-size: 12px;
+ -fx-font-family: "Arial Black";
+ -fx-font-style: normal;
+ }
+
+#ComboProduitC .list-cell:hover
+ {
+ -fx-font-weight: bold;
+ -fx-text-fill: #011528;
+ -fx-background-color: #f4874b;
+ -fx-font-size: 12px;
+ -fx-font-family: "Arial Black";
+ -fx-font-style: normal;
+ }
+
+#pageFront
+{
+ -fx-background-color: white;
+}
+
+      #panierTable.column-header
+      {
+      -fx-font-weight: bold;
+      -fx-background-color: #011528;
+      }
+
+      #panierTable .column-header,
+      #panierTable .column-header .label {
+      -fx-text-fill: #f4874b;
+            -fx-background-color: #011528;
+
+      -fx-font-weight: bold;
+      -fx-font-size: 12px;
+      -fx-font-family: "Arial Black";
+      -fx-font-style: normal;
+      }
+/*css produit back end*/
+
+#ajouterProduit{
+-fx-background-color: #011528;
+-fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+ }
+ #ajouterProduit:hover {
+  -fx-background-color: #f4874b;
+  -fx-text-fill: #011528;
+  }
+
+  #posterDemandeButton{
+    -fx-background-color: #011528;
+    -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+     }
+     #posterDemandeButton:hover {
+      -fx-background-color: #f4874b;
+      -fx-text-fill: #011528;
+      }
+
+       #transferButton{
+          -fx-background-color: #011528;
+          -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+           }
+           #transferButton:hover {
+            -fx-background-color: #f4874b;
+            -fx-text-fill: #011528;
+            }
+  #codePromo{
+  -fx-background-color: #011528;
+  -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+   }
+   #codePromo:hover {
+    -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+    }
+  #modifierProduit{
+  -fx-background-color: #011528;
+  -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+  }
+  #modifierProduit:hover {
+  -fx-background-color: #f4874b;
+  -fx-text-fill: #011528;
+  }
+
+ #supprimerProduit{
+  -fx-background-color: #011528;
+  -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+  }
+
+  #supprimerProduit:hover {
+   -fx-background-color: #f4874b;
+   -fx-text-fill: #011528;
+   }
+
+   #btImageProduit{
+   -fx-background-color: #011528;
+   -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+   }
+
+    #btImageProduit:hover {
+    -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+     }
+
+    #qrcodeProduitbtn {
+    -fx-background-color: #011528;
+    -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+     }
+
+     #qrcodeProduitbtn:hover {
+      -fx-background-color: #f4874b;
+      -fx-text-fill: #011528;
+      }
+
+      #tabProduit .column-header
+      {
+      -fx-font-weight: bold;
+      -fx-background-color: #011528;
+      }
+
+      #tabProduit .column-header,
+      #tabProduit .column-header .label {
+      -fx-text-fill: #f4874b;
+      -fx-font-weight: bold;
+      -fx-font-size: 12px;
+      -fx-font-family: "Arial Black";
+      -fx-font-style: normal;
+      }
+
+      #sortProduitBox
+      {
+      -fx-font-weight: bold;
+      -fx-background-color: #011528;
+      -fx-text-fill: #f4874b;
+      -fx-font-size: 12px;
+      -fx-font-family: "Arial Black";
+      -fx-font-style: normal;
+      }
+
+      #sortProduitBox .list-view
+      {
+      -fx-text-fill: #f4874b;
+      -fx-font-weight: bold;
+      -fx-background-color: #011528;
+      -fx-font-size: 12px;
+      -fx-font-family: "Arial Black";
+      -fx-font-style: normal;
+      }
+
+      #sortProduitBox .list-cell
+      {
+      -fx-text-fill: #f4874b;
+      -fx-font-weight: bold;
+      -fx-background-color: #011528;
+      -fx-font-size: 12px;
+      -fx-font-family: "Arial Black";
+      -fx-font-style: normal;
+      }
+
+      #sortProduitBox .list-cell:hover
+      {
+      -fx-font-weight: bold;
+      -fx-text-fill: #011528;
+      -fx-background-color: #f4874b;
+      -fx-font-size: 12px;
+      -fx-font-family: "Arial Black";
+      -fx-font-style: normal;
+      }
+
+      #comboOffreP
+      {
+       -fx-font-weight: bold;
+       -fx-background-color: #011528;
+       -fx-text-fill: #f4874b;
+       -fx-font-size: 12px;
+       -fx-font-family: "Arial Black";
+       -fx-font-style: normal;
+       }
+
+       #comboOffreP .list-view
+       {
+       -fx-text-fill: #f4874b;
+       -fx-font-weight: bold;
+       -fx-background-color: #011528;
+       -fx-font-size: 12px;
+       -fx-font-family: "Arial Black";
+       -fx-font-style: normal;
+       }
+
+       #comboOffreP .list-cell
+       {
+       -fx-text-fill: #f4874b;
+       -fx-font-weight: bold;
+       -fx-background-color: #011528;
+       -fx-font-size: 12px;
+       -fx-font-family: "Arial Black";
+       -fx-font-style: normal;
+       }
+
+       #comboOffreP .list-cell:hover
+        {
+        -fx-font-weight: bold;
+        -fx-text-fill: #011528;
+        -fx-background-color: #f4874b;
+        -fx-font-size: 12px;
+        -fx-font-family: "Arial Black";
+        -fx-font-style: normal;
+        }
+
+   #pdfProduit
+   {
+    -fx-background-color: #011528;
+    -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+   }
+
+
+
+     #pdfProduit:hover {
+      -fx-background-color: #f4874b;
+      -fx-text-fill: #011528;
+      }
+
+      #excelProduit{
+      -fx-background-color: #011528;
+      -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+              }
+      #excelProduit:hover {
+      -fx-background-color: #f4874b;
+      -fx-text-fill: #011528;
+      }
+       #switchCategorie
+            {
+            -fx-background-color: #011528;
+                -fx-text-fill: #f4874b;
+            }
+            #switchCategorie:hover
+            {
+            -fx-background-color: #f4874b;
+                -fx-text-fill: #011528;
+            }
+
+      /* css du categorie back end*/
+
+  #switchProduit
+            {
+            -fx-background-color: #011528;
+                -fx-text-fill: #f4874b;
+            }
+            #switchProduit:hover
+            {
+            -fx-background-color: #f4874b;
+                -fx-text-fill: #011528;
+            }
+#btnImageC
+{
+  -fx-background-color: #011528;
+    -fx-text-fill: #f4874b;
+}
+#btnImageC:hover
+{
+ -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+#ajouterCategorie
+{
+  -fx-background-color: #011528;
+    -fx-text-fill: #f4874b;
+}
+#ajouterCategorie:hover
+{
+ -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+#qrcodebtn
+{
+  -fx-background-color: #011528;
+    -fx-text-fill: #f4874b;
+}
+#qrcodebtn:hover
+{
+ -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+#supprimerCategorie
+{
+  -fx-background-color: #011528;
+    -fx-text-fill: #f4874b;
+}
+#supprimerCategorie:hover
+{
+ -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+#pdfCategorie
+{
+  -fx-background-color: #011528;
+    -fx-text-fill: #f4874b;
+}
+#pdfCategorie:hover
+{
+ -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+#excelCategorie
+{
+  -fx-background-color: #011528;
+    -fx-text-fill: #f4874b;
+}
+#excelCategorie:hover
+{
+ -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+#modifierCategorie
+{
+-fx-background-color: #011528;
+    -fx-text-fill: #f4874b;
+}
+#modifierCategorie:hover
+{
+ -fx-background-color: #f4874b;
+    -fx-text-fill: #011528;
+}
+
+  tabCategorie .column-header
+      {
+      -fx-font-weight: bold;
+      -fx-background-color: #011528;
+      }
+
+      #tabCategorie .column-header,
+      #tabCategorie .column-header .label {
+      -fx-text-fill: #f4874b;
+            -fx-background-color: #011528;
+      -fx-font-weight: bold;
+      -fx-font-size: 12px;
+      -fx-font-family: "Arial Black";
+      -fx-font-style: normal;
+      }
+
+
+            #sortCategorieBox
+            {
+            -fx-font-weight: bold;
+            -fx-background-color: #011528;
+            -fx-text-fill: #f4874b;
+            -fx-font-size: 12px;
+            -fx-font-family: "Arial Black";
+            -fx-font-style: normal;
+            }
+
+            #sortCategorieBox .list-view
+            {
+            -fx-text-fill: #f4874b;
+            -fx-font-weight: bold;
+            -fx-background-color: #011528;
+            -fx-font-size: 12px;
+            -fx-font-family: "Arial Black";
+            -fx-font-style: normal;
+            }
+
+            #sortCategorieBox .list-cell
+            {
+            -fx-text-fill: #f4874b;
+            -fx-font-weight: bold;
+            -fx-background-color: #011528;
+            -fx-font-size: 12px;
+            -fx-font-family: "Arial Black";
+            -fx-font-style: normal;
+            }
+
+            #sortCategorieBox .list-cell:hover
+            {
+            -fx-font-weight: bold;
+            -fx-text-fill: #011528;
+            -fx-background-color: #f4874b;
+            -fx-font-size: 12px;
+            -fx-font-family: "Arial Black";
+            -fx-font-style: normal;
+            }
+
+            /*css du panier et commande back end*/
+
+
+            tablePanierBack.column-header
+                  {
+                  -fx-font-weight: bold;
+                  -fx-background-color: #011528;
+                  }
+
+                  #tablePanierBack .column-header,
+                  #tablePanierBack .column-header .label {
+                  -fx-text-fill: #f4874b;
+                        -fx-background-color: #011528;
+                  -fx-font-weight: bold;
+                  -fx-font-size: 12px;
+                  -fx-font-family: "Arial Black";
+                  -fx-font-style: normal;
+                  }
+
+
+tableCommandeBack.column-header
+                  {
+                  -fx-font-weight: bold;
+                  -fx-background-color: #011528;
+                  }
+
+                  #tableCommandeBack .column-header,
+                  #tableCommandeBack .column-header .label {
+                  -fx-text-fill: #f4874b;
+                        -fx-background-color: #011528;
+                  -fx-font-weight: bold;
+                  -fx-font-size: 12px;
+                  -fx-font-family: "Arial Black";
+                  -fx-font-style: normal;
+                  }
+                   #switchPanierCommande
+                              {
+                              -fx-background-color: #011528;
+                                  -fx-text-fill: #f4874b;
+                              }
+                              #switchPanierCommande:hover
+                              {
+                              -fx-background-color: #f4874b;
+                                  -fx-text-fill: #011528;
+                              }
+                              #switchPanierCommande2
+                               {
+                               -fx-background-color: #011528;
+                                   -fx-text-fill: #f4874b;
+                               }
+                               #switchPanierCommande2:hover
+                               {
+                               -fx-background-color: #f4874b;
+                                   -fx-text-fill: #011528;
+                               }
+
+ /*menu back admin*/
+
+ #userMenu {
+     -fx-background-color: #011528;
+     -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+ }
+ #userMenu:hover {
+     -fx-background-color: #f4874b;
+     -fx-text-fill: #011528;
+ }
+ #produitMenu {
+      -fx-background-color: #011528;
+      -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+  }
+  #produitMenu:hover {
+      -fx-background-color: #f4874b;
+      -fx-text-fill: #011528;
+  }
+
+ #offreMenu {
+      -fx-background-color: #011528;
+      -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+  }
+  #offreMenu:hover {
+      -fx-background-color: #f4874b;
+      -fx-text-fill: #011528;
+  }
+
+ #pubMenu {
+      -fx-background-color: #011528;
+      -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+  }
+  #pubMenu:hover {
+      -fx-background-color: #f4874b;
+      -fx-text-fill: #011528;
+  }
+  #donsMenu {
+       -fx-background-color: #011528;
+       -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+   }
+   #donsMenu:hover {
+       -fx-background-color: #f4874b;
+       -fx-text-fill: #011528;
+   }
+   #eventMenu {
+        -fx-background-color: #011528;
+        -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+    }
+    #eventMenu:hover {
+        -fx-background-color: #f4874b;
+        -fx-text-fill: #011528;
+    }
+
+
+
+            #mdpoub
+            {
+                    -fx-background-color: #011528;
+                       -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+
+            }
+            #mdpoub:hover
+                {
+                       -fx-background-color: #f4874b;
+                               -fx-text-fill: #011528;
+
+                }
+                #se_connecter
+                            {
+                                    -fx-background-color: #011528;
+                                       -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+
+                            }
+                            #se_connecter:hover
+                                {
+                                       -fx-background-color: #f4874b;
+                                               -fx-text-fill: #011528;
+
+                                }
+
+
+   #resetPasswordButton
+            {
+                    -fx-background-color: #011528;
+                       -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+
+            }
+            #resetPasswordButton:hover
+                {
+                       -fx-background-color: #f4874b;
+                               -fx-text-fill: #011528;
+
+                }
+
+   #btnrez
+     {
+             -fx-background-color: #011528;
+            -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+
+       }
+  #btnrez:hover
+    {
+          -fx-background-color: #f4874b;
+         -fx-text-fill: #011528;
+
+       }
+         #demdons
+                 {
+                    -fx-background-color: #011528;
+                    -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+
+                 }
+          #demdons:hover
+          {
+              -fx-background-color: #f4874b;
+                 -fx-text-fill: #011528;
+           }
+  #retour
+     {
+             -fx-background-color: #011528;
+            -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+
+       }
+  #retour:hover
+    {
+          -fx-background-color: #f4874b;
+         -fx-text-fill: #011528;
+
+       }
+ #dDonsMenu
+     {
+           -fx-background-color: #011528;
+           -fx-text-fill: #f4874b; /* Pour rendre le texte lisible sur le fond sombre */
+
+  }
+   #dDonsMenu:hover
+     {
+        -fx-background-color: #f4874b;
+                               -fx-text-fill: #011528;
+     }
+
+     /*userback*/
+   tableUserBack.column-header
+                               {
+                               -fx-font-weight: bold;
+                               -fx-background-color: #011528;
+                               }
+
+                               #tableUserBack .column-header,
+                               #tableUserBack .column-header .label {
+                               -fx-background-color:  #011528;
+                                -fx-text-fill: #f4874b;
+                          -fx-font-weight: bold;
+                         -fx-font-size: 11px;
+                         -fx-font-family: "Arial Black";
+                         -fx-font-style: normal;
+                               }
+
+
+      /*dons asma back*/
+       donsTable.column-header
+                             {
+                             -fx-font-weight: bold;
+                             -fx-background-color: #011528;
+                             }
+
+                             #donsTable .column-header,
+                             #donsTable .column-header .label {
+                             -fx-background-color:  #011528;
+                              -fx-text-fill: #f4874b;
+                        -fx-font-weight: bold;
+                       -fx-font-size: 11px;
+                       -fx-font-family: "Arial Black";
+                       -fx-font-style: normal;
+                             }
+
+
+     demandeDonsTableView.column-header
+                              {
+                              -fx-font-weight: bold;
+                              -fx-background-color: #011528;
+                              }
+
+                              #demandeDonsTableView .column-header,
+                              #demandeDonsTableView .column-header .label {
+                              -fx-background-color:  #011528;
+                               -fx-text-fill: #f4874b;
+                         -fx-font-weight: bold;
+                        -fx-font-size: 11px;
+                        -fx-font-family: "Arial Black";
+                        -fx-font-style: normal;
+                              }
+
+         #triComboBox
+             {
+              -fx-font-weight: bold;
+              -fx-background-color: #011528;
+              -fx-text-fill: #f4874b;
+              -fx-font-size: 12px;
+              -fx-font-family: "Arial Black";
+              -fx-font-style: normal;
+              }
+
+              #triComboBox .list-view
+              {
+              -fx-text-fill: #f4874b;
+              -fx-font-weight: bold;
+              -fx-background-color: #011528;
+              -fx-font-size: 12px;
+              -fx-font-family: "Arial Black";
+              -fx-font-style: normal;
+              }
+
+              #triComboBox .list-cell
+              {
+              -fx-text-fill: #f4874b;
+              -fx-font-weight: bold;
+              -fx-background-color: #011528;
+              -fx-font-size: 12px;
+              -fx-font-family: "Arial Black";
+              -fx-font-style: normal;
+              }
+
+              #triComboBox .list-cell:hover
+               {
+               -fx-font-weight: bold;
+               -fx-text-fill: #011528;
+               -fx-background-color: #f4874b;
+               -fx-font-size: 12px;
+               -fx-font-family: "Arial Black";
+               -fx-font-style: normal;
+               }
+
+    #comboUser
+         {
+          -fx-font-weight: bold;
+          -fx-background-color: #011528;
+          -fx-text-fill: #f4874b;
+          -fx-font-size: 12px;
+          -fx-font-family: "Arial Black";
+          -fx-font-style: normal;
+          }
+
+          #comboUser .list-view
+          {
+          -fx-text-fill: #f4874b;
+          -fx-font-weight: bold;
+          -fx-background-color: #011528;
+          -fx-font-size: 12px;
+          -fx-font-family: "Arial Black";
+          -fx-font-style: normal;
+          }
+
+          #comboUser .list-cell
+          {
+          -fx-text-fill: #f4874b;
+          -fx-font-weight: bold;
+          -fx-background-color: #011528;
+          -fx-font-size: 12px;
+          -fx-font-family: "Arial Black";
+          -fx-font-style: normal;
+          }
+
+          #comboUser .list-cell:hover
+           {
+           -fx-font-weight: bold;
+           -fx-text-fill: #011528;
+           -fx-background-color: #f4874b;
+           -fx-font-size: 12px;
+           -fx-font-family: "Arial Black";
+           -fx-font-style: normal;
+           }
+
+
+   donsTable.column-header
+                               {
+                               -fx-font-weight: bold;
+                               -fx-background-color: #011528;
+                               }
+
+                               #donsTable .column-header,
+                               #donsTable .column-header .label {
+                               -fx-background-color:  #011528;
+                                -fx-text-fill: #f4874b;
+                          -fx-font-weight: bold;
+                         -fx-font-size: 11px;
+                         -fx-font-family: "Arial Black";
+                         -fx-font-style: normal;
+                               }
+
+
+       rList.column-header
+                                {
+                                -fx-font-weight: bold;
+                                -fx-background-color: #011528;
+                                }
+
+                                #rList .column-header,
+                                #rList .column-header .label {
+                                -fx-background-color:  #011528;
+                                 -fx-text-fill: #f4874b;
+                           -fx-font-weight: bold;
+                          -fx-font-size: 11px;
+                          -fx-font-family: "Arial Black";
+                          -fx-font-style: normal;
+                                }

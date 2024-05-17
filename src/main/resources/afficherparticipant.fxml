@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="626.0" prefWidth="1182.0" stylesheets="@fullpackstyling.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.front.AfficherparticipantController">
+   <children>
+      <ImageView fitHeight="626.0" fitWidth="1202.0" layoutX="-8.0">
+
+      </ImageView>
+      <TableView fx:id="tableparticipant" layoutX="364.0" layoutY="251.0" onMouseClicked="#choisirparticipant" prefHeight="318.0" prefWidth="680.0">
+        <columns>
+          <TableColumn fx:id="iduserTv" prefWidth="191.0" text="id utilisateur" />
+          <TableColumn fx:id="idabonnTv" prefWidth="238.0" text="id Evenement" />
+            <TableColumn fx:id="datePartTv" prefWidth="233.0" text="date participant" />
+        </columns>
+      </TableView>
+      <Button fx:id="modifierPartBtn" layoutX="786.0" layoutY="117.0" mnemonicParsing="false" onAction="#modifierparticipant" prefHeight="30.0" prefWidth="221.0" style="-fx-background-radius: 30;" text="modifier participant" textFill="#f05c00" />
+      <Button fx:id="supprimerPartBtn" layoutX="639.0" layoutY="214.0" mnemonicParsing="false" onAction="#supprimerparticipant" prefHeight="30.0" prefWidth="221.0" style="-fx-background-radius: 30;" text="supprimer participant" textFill="#ff4400">
+         <font>
+            <Font size="11.0" />
+         </font></Button>
+      <TextField fx:id="idread" layoutX="374.0" layoutY="81.0" prefHeight="30.0" prefWidth="181.0" promptText="Id Participant" />
+      <TextField fx:id="iduserField" layoutX="374.0" layoutY="117.0" prefHeight="30.0" prefWidth="181.0" promptText="Id Utilisateur" />
+      <TextField fx:id="idabonnField" layoutX="564.0" layoutY="81.0" prefHeight="30.0" prefWidth="214.0" promptText="Id Evenement" />
+      <TextField fx:id="datepartField1" layoutX="564.0" layoutY="117.0" prefHeight="30.0" prefWidth="214.0" promptText="Date participant" />
+      <DatePicker fx:id="datepartField" layoutX="787.0" layoutY="81.0" prefHeight="30.0" prefWidth="221.0" promptText="entrer le date" />
+      <Label layoutX="544.0" layoutY="14.0" prefHeight="60.0" prefWidth="424.0" text="AFFICHER Participant" textFill="#f0844a">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="355.0" fitWidth="733.0" layoutX="-206.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@Photos/011528.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="427.0" fitWidth="298.0" layoutX="15.0" layoutY="-90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photos/EspritMarket-logos_transparent.png" />
+         </image>
+      </ImageView>
+      <Line endX="173.00241088867188" layoutX="133.0" layoutY="102.0" opacity="0.62" startX="-112.0" stroke="#ff9d26" />
+      <Button fx:id="ajouter" layoutX="37.0" layoutY="147.0" mnemonicParsing="false" onAction="#ajouterevenement" prefHeight="67.0" prefWidth="254.0" style="-fx-background-radius: 30;" text="ajouter evenement" textFill="#ff4400">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <TextField fx:id="chercherabonnField" layoutX="359.0" layoutY="214.0" nodeOrientation="LEFT_TO_RIGHT" onKeyPressed="#rechercherevenement" prefHeight="30.0" prefWidth="267.0" promptText="donner le nom d'evenement" style="-fx-background-radius: 30;" />
+   </children>
+</AnchorPane>

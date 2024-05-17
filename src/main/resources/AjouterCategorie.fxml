@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="703.0" prefWidth="1065.0" stylesheets="@css/button.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.back.AjouterCategorieController">
+   <children>
+      <TextField fx:id="tfNomCategorie" layoutX="350.0" layoutY="86.0" prefHeight="25.0" prefWidth="222.0" promptText="Nom catégorie" />
+      <Label layoutX="438.0" layoutY="36.0" text="Ajouter Catégorie" textFill="#f5993d">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="ajouterCategorie" layoutX="350.0" layoutY="154.0" mnemonicParsing="false" onAction="#AjouterCategorie" prefHeight="25.0" prefWidth="132.0" text="Ajouter">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <ImageView fx:id="tfImage" fitHeight="172.0" fitWidth="216.0" layoutX="766.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photos/insertImage.jpg" />
+         </image></ImageView>
+      <Button fx:id="btnImageC" layoutX="596.0" layoutY="86.0" mnemonicParsing="false" onAction="#btn_image_action" text="inserer Image">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <TableView fx:id="tabCategorie" layoutX="335.0" layoutY="305.0" onMouseClicked="#SetValue" prefHeight="369.0" prefWidth="706.0">
+        <columns>
+          <TableColumn fx:id="nomCategorieTab" prefWidth="187.0" text="nom Categorie" />
+          <TableColumn fx:id="imageCategorieTab" prefWidth="517.0" text="Image Categorie" />
+        </columns>
+      </TableView>
+      <Button fx:id="modifierCategorie" layoutX="492.0" layoutY="154.0" mnemonicParsing="false" onAction="#ModifierCategorie" prefHeight="25.0" prefWidth="132.0" text="Modifier">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <Button fx:id="supprimerCategorie" layoutX="492.0" layoutY="188.0" mnemonicParsing="false" onAction="#SupprimerCategorie" prefHeight="25.0" prefWidth="132.0" text="Supprimer">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <TextField fx:id="RechercherCategorie" layoutX="342.0" layoutY="265.0" onKeyPressed="#searchCategorie" prefHeight="25.0" prefWidth="251.0" promptText="Rechercher" />
+      <ComboBox fx:id="sortCategorieBox" layoutX="604.0" layoutY="265.0" onAction="#sortCategorie" prefHeight="25.0" prefWidth="91.0" />
+      <Button fx:id="pdfCategorie" layoutX="630.0" layoutY="154.0" mnemonicParsing="false" onAction="#generatePdfCategorie" prefHeight="25.0" prefWidth="73.0" text=" PDF">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <Button fx:id="qrcodebtn" layoutX="350.0" layoutY="188.0" mnemonicParsing="false" onAction="#generateQrCode" prefHeight="25.0" prefWidth="132.0" text=" Qrcode">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <Button fx:id="excelCategorie" layoutX="630.0" layoutY="188.0" mnemonicParsing="false" onAction="#generateExcelCategorie" prefHeight="25.0" prefWidth="73.0" text="Excel">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <ImageView fitHeight="318.0" fitWidth="713.0" layoutX="-205.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@Photos/011528.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="427.0" fitWidth="298.0" layoutX="-3.0" layoutY="-110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photos/EspritMarket-logos_transparent.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="qrcode" fitHeight="142.0" fitWidth="165.0" layoutX="58.0" layoutY="498.0" pickOnBounds="true" preserveRatio="true" />
+      <Line endX="251.6690673828125" layoutX="450.0" layoutY="75.0" startX="-100.0" />
+      <Line endX="251.6690673828125" layoutX="449.0" layoutY="134.0" startX="-100.0" />
+      <Line endX="251.6690673828125" layoutX="449.0" layoutY="236.0" startX="-100.0" />
+      <Line endX="173.00241088867188" layoutX="121.0" layoutY="75.0" opacity="0.62" startX="-112.0" stroke="#ff9d26" />
+      <Button fx:id="switchProduit" layoutX="58.0" layoutY="121.0" mnemonicParsing="false" onAction="#switchToProduit" prefHeight="25.0" prefWidth="165.0" text="Produit">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="switchPanierCommande2" layoutX="55.0" layoutY="184.0" mnemonicParsing="false" onAction="#switchToPanierCommande2" prefHeight="34.0" prefWidth="193.0" text="Panier/Commande">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="retour" layoutX="87.0" layoutY="248.0" mnemonicParsing="false" onAction="#retourMenu" prefHeight="34.0" prefWidth="107.0" text="Retour">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

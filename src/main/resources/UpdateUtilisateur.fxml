@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="451.0" prefWidth="600.0" stylesheets="@css/button.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.front.EditerleprofilController">
+   <children>
+      <ImageView fitHeight="329.0" fitWidth="440.0" layoutX="142.0" layoutY="-103.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photos/EspritMarket-logos_transparent.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="prenomUser" layoutX="206.0" layoutY="149.0" prefHeight="25.0" prefWidth="201.0" />
+
+
+      <TextField fx:id="mdp" layoutX="206.0" layoutY="318.0" prefHeight="25.0" prefWidth="201.0" />
+      <TextField fx:id="numTel" layoutX="206.0" layoutY="231.0" prefHeight="25.0" prefWidth="201.0" />
+      <TextField fx:id="emailUser" layoutX="206.0" layoutY="188.0" prefHeight="25.0" prefWidth="201.0" />
+      <TextField fx:id="nbPoints" layoutX="206.0" layoutY="276.0" prefHeight="25.0" prefWidth="201.0" />
+      <TextField fx:id="role" layoutX="206.0" layoutY="359.0" prefHeight="25.0" prefWidth="201.0" />
+      <TextField fx:id="nomUser" layoutX="206.0" layoutY="114.0" prefHeight="25.0" prefWidth="201.0" />
+      <Button layoutX="206.0" layoutY="398.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #011528; -fx-text-fill: #f4874b;" text="Modifier">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Button>
+      <Button fx:id="retour" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#retourMenufront" prefHeight="25.0" prefWidth="90.0" text="retour">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="retour" layoutX="313.0" layoutY="398.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="25.0" prefWidth="90.0" text="supprimer">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      
+   </children>
+</AnchorPane>

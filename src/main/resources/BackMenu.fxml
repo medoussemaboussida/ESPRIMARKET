@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="backMenu" prefHeight="519.0" prefWidth="719.0" stylesheets="@css/button.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.back.BackMenuController">
+   <children>
+      <ImageView fitHeight="365.0" fitWidth="350.0" layoutX="185.0" layoutY="-125.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photos/EspritMarket-logos_transparent.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="produitMenu" layoutX="371.0" layoutY="168.0" mnemonicParsing="false" onAction="#goToProduit" prefHeight="32.0" prefWidth="187.0" text="Gestion des produits">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="pubMenu" layoutX="174.0" layoutY="309.0" mnemonicParsing="false" onAction="#goToPub" prefHeight="32.0" prefWidth="187.0" text="Gestion des publications">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="donsMenu" layoutX="174.0" layoutY="391.0" mnemonicParsing="false" onAction="#goToDons" prefHeight="32.0" prefWidth="187.0" text="Gestion des dons">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="eventMenu" layoutX="371.0" layoutY="309.0" mnemonicParsing="false" onAction="#goToEvent" prefHeight="32.0" prefWidth="187.0" text="Gestion des événements">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="offreMenu" layoutX="174.0" layoutY="235.0" mnemonicParsing="false" onAction="#goToOffre" prefHeight="32.0" prefWidth="187.0" text="Gestion des offres">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="userMenu" layoutX="174.0" layoutY="168.0" mnemonicParsing="false" onAction="#goToUser" prefHeight="32.0" prefWidth="187.0" text="Liste des clients">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Line endX="174.0" layoutX="322.0" layoutY="97.0" startX="-100.0" stroke="#f4874b" />
+      <ImageView fitHeight="46.0" fitWidth="58.0" layoutX="91.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" rotate="-42.5">
+         <image>
+            <Image url="@Photos/soda.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="57.0" layoutX="589.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" rotate="38.7">
+         <image>
+            <Image url="@Photos/shopp.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="51.0" layoutX="56.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true" rotate="-49.8">
+         <image>
+            <Image url="@Photos/shop2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="demdons" layoutX="371.0" layoutY="391.0" mnemonicParsing="false" onAction="#goToDemandeDons" prefHeight="32.0" prefWidth="187.0" text="Demandes de dons">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="72.0" fitWidth="54.0" layoutX="600.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true" rotate="38.7">
+         <image>
+            <Image url="@Photos/donation.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="codePromo" layoutX="371.0" layoutY="235.0" mnemonicParsing="false" onAction="#toCodepromo" prefHeight="32.0" prefWidth="187.0" text="Les code Promos">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="634.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photos/1144760.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelUserName" layoutX="591.0" layoutY="67.0" prefHeight="20.0" prefWidth="133.0" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Black" size="10.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="16.0" layoutY="14.0" onAction="#back" text="Déconnecter ?" />
+   </children>
+</AnchorPane>
