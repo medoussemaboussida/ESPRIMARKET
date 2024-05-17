@@ -1,0 +1,13 @@
+{# templates/dons/add_points_to_event_form.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter des points à l'événement{{ evenement.nomEv }}{% endblock %}
+
+{% block body %}
+    <h1>Ajouter des points à l'événement "{{ evenement.nomEv }}"</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.nbPoints) }}
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}

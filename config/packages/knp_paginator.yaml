@@ -1,0 +1,10 @@
+knp_paginator:
+    page_range: 5                      # Nombre de pages affichées dans la pagination
+    default_options:
+        page_name: page                # Paramètre de la requête HTTP pour la page
+        sort_field_name: sort          # Paramètre de la requête HTTP pour le tri
+        sort_direction_name: direction # Paramètre de la requête HTTP pour la direction du tri
+        distinct: true                 # Pour traiter les résultats de la pagination comme des éléments distincts
+    template:
+        pagination: '@KnpPaginator/Pagination/sliding.html.twig' # Modèle Twig pour la pagination
+        sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # Modèle Twig pour le tri

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Publications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: navy; /* Couleur du titre en bleu marin */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid navy; /* Bordure de tableau en bleu marin */
+        }
+        th, td {
+            border: 1px solid navy; /* Bordures de cellules en bleu marin */
+            padding: 8px;
+        }
+        th {
+            background-color: navy; /* Couleur de fond du titre de tableau en bleu marin */
+            color: white; /* Couleur du texte du titre de tableau en blanc */
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 200px; /* Ajustez la largeur selon vos besoins */
+            height: auto; /* Maintenir le ratio hauteur/largeur */
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Utilisation de asset() pour générer le chemin relatif vers l'image -->
+ 
+
+    {% for monthYear, publications in publicationsByMonth %}
+        <h1>Publications de {{ monthYear }}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for publication in publications %}
+                    <tr>
+                        <td>{{ publication.getTitrePublication() |raw }}</td>
+                        <td>{{ publication.getDescription() |raw}}</td>
+                        <td>{{ publication.getDatePublication() ? publication.getDatePublication()|date('Y-m-d') : '' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</body>
+</html>

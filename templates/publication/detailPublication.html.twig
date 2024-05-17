@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Publications</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="/front/assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="/front/assets/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="/front/assets/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="/front/assets/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="/front/assets/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="/front/assets/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="/front/assets/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="/front/assets/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="/front/assets/css/responsive.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+
+
+</head>
+
+<body>
+	
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+	
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="/front/assets/img/logo.png" alt="" class="logo-img">
+							</a>
+						</div>
+						<style>
+							.logo-img {
+								max-width: 250px; /* ajustez la valeur en fonction de la taille maximale souhaitée */
+                               height: auto;
+							   margin-top: -12px;
+							}
+						</style>
+						<!-- logo -->
+                        
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li><a href="{{path('app_produit')}}">Home</a></li>
+								<li class="sub-menu"><a href="#">Dons</a>
+									<ul class="sub-menu">
+                                        <li><a href='/dons'>Faire un don</a></li>
+										<li><a href='/demander_dons'>Demander dons</a></li>
+										
+									</ul>
+								</li>
+								<li ><a href="{{ path('app_evenement_front')}}">Evénements</a>
+									<ul class="sub-menu">
+										<li><a href="{{ path('app_evenement_front')}}">Evénements</a></li>
+										<li><a href="{{ path('app_reclamation_new')}}">Réclamation</a></li>
+									</ul>
+								</li>
+								<li class="current-list-item"><a href="{{path('front_publication')}}">Publications</a></li>
+
+								<li><a href="">Offres</a></li>
+
+								<li  ><a href="{{ path('app_produit_front')}}">Produits</a>
+									<ul class="sub-menu">
+										<li><a href="checkout.html">Historique des commandes</a></li>
+										<li ><a href="{{ path('afficher_produit_panier', {'idUser': user.iduser}) }}">Panier</a></li>
+									</ul>
+								</li>
+								<li>
+									<div class="header-icons">
+										<a class="shopping-cart" href="{{ path('afficher_produit_panier', {'idUser': user.iduser}) }}"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<a class="logout-icon" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+<a href="{{ path('app_profile_user') }}" class="btn btn-primary rounded-pill py-2 px-3">
+    <i class="fas fa-user"></i> <!-- Icône utilisateur -->
+</a>
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+
+    <!--PreLoader Ends-->
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search arewa -->
+	
+	    <div class="top-header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="main-menu-wrap">
+                        <nav class="main-menu">
+                            <ul>
+                                <li>
+                                    <div class="translation-widget">
+                                        <div id="google_translate_element"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Detail de Publication</p>
+						<h1>{{ publication.getTitrepublication() |raw }}</h1> {# Afficher le titre de la publication ici #}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+	
+	<!-- single article section -->
+	<div class="mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="single-article-section">
+						<div class="single-article-text">
+							<div>
+    <img src="{{ asset('images/' ~ publication.getImagepublication()) }}" alt="{{ publication.getTitrepublication() }}" style="width: 800px; height: 500px; object-fit: cover;">
+</div>
+
+							<p class="blog-meta">
+
+    <span class="author"><i class="fas fa-user"></i> Admin</span>
+
+
+                                <span class="date"><i class="fas fa-calendar"></i> {{ publication.getDatePublication()|date('d F, Y') }}</span>
+							</p>
+							<h2>{{ publication.getTitrepublication() |raw }}</h2>
+							<p>{{ publication.getDescription()  |raw}}</p>
+						</div>
+						
+
+						<div class="comments-list-wrap">
+    <h3 class="comment-count-title">{{ commentaires | length }} {% if commentaires | length > 1 %}Comments{% else %}Comment{% endif %}</h3>
+    <div class="comment-list">
+    {% for commentaire in commentaires %}
+        <div class="single-comment-body">
+            <div class="comment-user-avater">
+                <img src="{{ asset('asset/img/avaters/utilisateur.png') }}" alt="">
+            </div>
+            <div class="comment-text-body">
+                {% set user = commentaire.getIduser() %}
+                <h4>
+                    {% if user %}
+                        {{ user.getNomuser() }} {{ user.getPrenomuser() }}
+                    {% endif %}
+                    <span class="comment-date"></span>
+                </h4>
+				<div id="comment_{{ commentaire.idcommentaire }}">
+                <p>{{ commentaire.getDescriptioncommentaire() }}</p>
+            </div>
+				{% if utilisateur %}
+   
+    {% if user.getIduser() == utilisateur.getIduser() %}
+        <!-- Afficher le formulaire de suppression uniquement si l'utilisateur connecté est l'auteur du commentaire -->
+        <form method="POST" action="{{ path('supprimer_commentaire', {'id': commentaire.idcommentaire}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?')">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" title="Supprimer" class="btn btn-link text-danger p-0" style="border: none; background: none;">
+                <!-- Assurez-vous que le chemin vers l'icône est correct -->
+                <i class="mdi mdi-delete mdi-24px"></i>
+            </button>
+			<!-- Ajouter l'icône de modification -->
+    <a href="#" onclick="editComment({{ commentaire.idcommentaire }})" title="Modifier" class="btn btn-link text-primary p-0" style="border: none; background: none;">
+                            <i class="mdi mdi-pencil mdi-24px"></i>
+                        </a>
+	
+        </form>
+
+		<!-- Formulaire de modification du commentaire -->
+                    <div id="edit_comment_{{ commentaire.idcommentaire }}" style="display: none;">
+                        <form id="edit_form_{{ commentaire.idcommentaire }}" method="POST" action="{{ path('modifier_commentaire', {'id': commentaire.idcommentaire}) }}" onsubmit="return validateEditForm({{ commentaire.idcommentaire }})">
+                            <input type="hidden" name="_method" value="POST">
+                            <input type="hidden" name="_token" value="{{ csrf_token('edit' ~ commentaire.idcommentaire) }}">
+                            <textarea id="edit_textarea_{{ commentaire.idcommentaire }}" name="descriptioncommentaire" class="form-control">{{ commentaire.getDescriptioncommentaire() }}</textarea>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            <button type="button" onclick="cancelEdit({{ commentaire.idcommentaire }})" class="btn btn-secondary">Annuler</button>
+                        </form>
+                    </div>
+
+		
+    {% endif %}
+	
+{% else %}
+    <!-- Si aucun utilisateur n'est connecté, ne pas afficher l'icône de suppression -->
+{% endif %}
+
+
+
+            </div>
+        </div>
+    {% endfor %}
+	<script>
+    function editComment(commentId) {
+        document.getElementById('comment_' + commentId).style.display = 'none';
+        document.getElementById('edit_comment_' + commentId).style.display = 'block';
+    }
+
+    function cancelEdit(commentId) {
+        document.getElementById('edit_comment_' + commentId).style.display = 'none';
+        document.getElementById('comment_' + commentId).style.display = 'block';
+    }
+
+    function validateEditForm(commentId) {
+        var editedDescription = document.getElementById('edit_textarea_' + commentId).value.trim();
+
+        if (editedDescription === '') {
+            alert('Veuillez entrer votre commentaire.');
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</div>
+
+
+
+</div>
+
+						<div class="comment-template">
+    <h4>Donner Votre Commentaire</h4>
+    <p>Si vous avez un commentaire, n'hésitez pas à nous envoyer votre opinion.</p>
+    <form action="{{ path('ajouter_commentaire', {'idPublication': publication.getIdPublication()}) }}" method="post" onsubmit="return validateForm()">
+    <p><textarea name="comment" id="comment" cols="30" rows="10" placeholder="Votre message"></textarea></p>
+    <input type="hidden" name="publication_id" value="{{ publication.getIdPublication() ~ ',' ~ utilisateur.getIduser() }}">
+<p><input type="submit" value="Envoyer"></p>
+
+</form>
+
+<script>
+    function validateForm() {
+        var comment = document.getElementById('comment').value.trim();
+
+        if (comment === '') {
+            alert('Veuillez entrer votre commentaire.');
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="sidebar-section">
+						<div class="recent-posts">
+							<h4>Recent Posts</h4>
+							<ul>
+								<li><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></li>
+								<li><a href="single-news.html">A man's worth has its season, like tomato.</a></li>
+								<li><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></li>
+								<li><a href="single-news.html">Fall in love with the fresh orange</a></li>
+								<li><a href="single-news.html">Why the berries always look delecious</a></li>
+							</ul>
+						</div>
+						<div class="archive-posts">
+							<h4>Archive Posts</h4>
+							<ul>
+								<li><a href="single-news.html">JAN 2019 (5)</a></li>
+								<li><a href="single-news.html">FEB 2019 (3)</a></li>
+								<li><a href="single-news.html">MAY 2019 (4)</a></li>
+								<li><a href="single-news.html">SEP 2019 (4)</a></li>
+								<li><a href="single-news.html">DEC 2019 (3)</a></li>
+							</ul>
+						</div>
+						<div class="tag-section">
+							<h4>Tags</h4>
+							<ul>
+								<li><a href="single-news.html">Apple</a></li>
+								<li><a href="single-news.html">Strawberry</a></li>
+								<li><a href="single-news.html">BErry</a></li>
+								<li><a href="single-news.html">Orange</a></li>
+								<li><a href="single-news.html">Lemon</a></li>
+								<li><a href="single-news.html">Banana</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end single article section -->
+
+	<!-- logo carousel -->
+	<div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo-carousel-inner">
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/1.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/2.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/3.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/4.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/5.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end logo carousel -->
+
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">About us</h2>
+						<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Get in Touch</h2>
+						<ul>
+							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+							<li>support@fruitkha.com</li>
+							<li>+00 111 222 3333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Pages</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="services.html">Shop</a></li>
+							<li><a href="news.html">News</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribe</h2>
+						<p>Subscribe to our mailing list to get the latest updates.</p>
+						<form action="index.html">
+							<input type="email" placeholder="Email">
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
+	
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
+						Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+					</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
+	    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+	<!-- jquery -->
+	<script src="/front/assets/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="/front/assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="/front/assets/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="/front/assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="/front/assets/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="/front/assets/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="/front/assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="/front/assets/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="/front/assets/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="/front/assets/js/main.js"></script>   
+</body>
+</html>
+

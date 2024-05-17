@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Panier</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="/front/assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="/front/assets/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="/front/assets/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="/front/assets/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="/front/assets/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="/front/assets/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="/front/assets/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="/front/assets/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="/front/assets/css/responsive.css">
+
+</head>
+<body>
+	
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+	
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="{{path('app_produit')}}">
+								<img src="/front/assets/img/logo.png" alt="" class="logo-img">
+							</a>
+						</div>
+						<style>
+							.logo-img {
+								max-width: 250px; /* ajustez la valeur en fonction de la taille maximale souhaitée */
+                               height: auto;
+							   margin-top: -12px;
+							}
+						</style>
+						<!-- logo -->
+
+												<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li><a href="{{path('app_produit')}}">Home</a></li>
+	<li class="sub-menu"><a href="#">Dons</a>
+									<ul class="sub-menu">
+                                        <li><a href='/dons'>Faire un don</a></li>
+										<li><a href='/demander_dons'>Demander dons</a></li>
+										
+									</ul>
+								</li>
+								<li ><a href="{{ path('app_evenement_front')}}">Evénements</a>
+									<ul class="sub-menu">
+										<li><a href="{{ path('app_evenement_front')}}">Evénements</a></li>
+										<li><a href="{{ path('app_reclamation_new')}}">Réclamation</a></li>
+									</ul>
+								</li>
+								<li><a href="{{path('front_publication')}}">Publications</a></li>
+
+
+								<li  class="current-list-item"><a href="{{ path('app_produit_front')}}">Produits</a>
+									<ul class="sub-menu">
+										<li ><a href="{{ path('afficher_produit_panier', {'idUser': user.iduser}) }}">Panier</a></li>
+									</ul>
+								</li>
+								<li>
+									<div class="header-icons">
+										<a class="shopping-cart" href="{{ path('afficher_produit_panier', {'idUser': user.iduser}) }}"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<a class="logout-icon" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+<a href="{{ path('app_profile_user') }}" class="btn btn-primary rounded-pill py-2 px-3">
+    <i class="fas fa-user"></i> <!-- Icône utilisateur -->
+</a>
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search arewa -->
+	
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Votre Epicérie , notre expertise !</p>
+						<h1>Votre panier </h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- cart -->
+	<div class="cart-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-12">
+					<div class="cart-table-wrap">
+<table class="cart-table">
+    <thead class="cart-table-head">
+        <tr class="table-head-row">
+            <th class="product-image">Produit</th>
+			<th class="product-image">Prix</th>
+			<th class="product-image">Quantite</th>
+			<th class="product-action">-/+</th>
+
+        </tr>
+    </thead>
+<tbody>
+    {% for produitId, produit in produitsUniques %}
+        <tr class="table-body-row">
+            <td class="product-image"><img src="{{ asset('images/' ~ produit.imageproduit) }}" alt="" class="product-img" ></td>
+<td>
+    {{ produit.prix | number_format(3, '.', ' ') }} DT
+	 &nbsp;|&nbsp;
+    {{ prixEnEuros | number_format(3, '.', ' ') }} EUR
+    &nbsp;|&nbsp;
+    {{ prixEnDollars | number_format(3, '.', ' ') }} $
+    &nbsp;|&nbsp;
+    {{ prixEnYuan | number_format(3, '.', ' ') }} ¥
+</td>  
+<td class="product-quantity" id="quantite-{{ produitId }}">{{ quantite[produitId] }}</td>
+            <td class="product-action">
+<a href="#" class="cart-btn remove-from-cart" data-produit="{{ produitId }}" data-panier="{{ panier.idpanier }}">-</a>
+    <a href="#" class="cart-btn add-to-cart" data-produit="{{ produitId }}" data-panier="{{ panier.idpanier }}">+</a>
+
+            </td>
+        </tr>
+    {% endfor %}
+</tbody>
+</table>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); // Empêche le comportement par défaut du lien
+
+            const produitId = this.getAttribute("data-produit");
+            const panierId = this.getAttribute("data-panier");
+
+            fetch("{{ path('app_produitcart_ajouter', {'id': 0, 'idp': 0 }) }}".replace('0', produitId).replace('0', panierId), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest' // Indique que la requête est AJAX
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erreur lors de l\'ajout du produit au panier');
+                }
+            })
+.then(data => {
+    // Mettez à jour l'affichage en fonction des données JSON reçues
+    for (const produitId in data.quantite) {
+        const quantiteElement = document.getElementById(`quantite-${produitId}`);
+        if (quantiteElement) {
+            quantiteElement.textContent = data.quantite[produitId]; // Met à jour la quantité affichée
+
+	 const montantTotalElement = document.querySelector('.total-data:last-child td:last-child');
+if (montantTotalElement) {
+    montantTotalElement.textContent = data.totalPrixFormatted + ' | ' + 
+                                       data.totalPrixEnEurosFormatted + ' | ' + 
+                                       data.totalPrixEnDollarsFormatted + ' | ' + 
+                                       data.totalPrixEnYuanFormatted;
+}
+        }
+    }
+})       .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const removeFromCartButtons = document.querySelectorAll(".remove-from-cart");
+
+    removeFromCartButtons.forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault(); // Empêche le comportement par défaut du lien
+
+            const produitId = this.getAttribute("data-produit");
+            const panierId = this.getAttribute("data-panier");
+
+            fetch("{{ path('app_produitcart_supprimer', {'id': 0, 'idp': 0 }) }}".replace('0', produitId).replace('0', panierId), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest' // Indique que la requête est AJAX
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erreur lors de la suppression du produit du panier');
+                }
+            })
+  .then(data => {
+                // Mettez à jour l'affichage en fonction des données JSON reçues
+                const quantiteElement = document.getElementById(`quantite-${produitId}`);
+                if (quantiteElement) {
+                    quantiteElement.textContent = data.quantite[produitId]; // Met à jour la quantité affichée
+   const montantTotalElement = document.querySelector('.total-data:last-child td:last-child');
+if (montantTotalElement) {
+    montantTotalElement.textContent = data.totalPrixFormatted + ' | ' + 
+                                       data.totalPrixEnEurosFormatted + ' | ' + 
+                                       data.totalPrixEnDollarsFormatted + ' | ' + 
+                                       data.totalPrixEnYuanFormatted;
+}
+
+	
+                }
+
+
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+});
+
+
+</script>
+
+
+<style>
+.product-img {
+   transform: scale(2);
+}
+
+
+</style>
+<script>
+		// Fonction pour afficher/cacher le bouton en fonction du champ de texte
+		function toggleApplyButton() {
+			const couponField = document.querySelector('input[name="coupon"]'); // Identifiez le champ du coupon
+			const applyButton = document.getElementById('apply_button'); // Identifiez le bouton de soumission
+
+			// Afficher le bouton si le champ de texte n'est pas vide, sinon cacher
+			if (couponField.value.trim() !== '') {
+				applyButton.classList.remove('hidden');
+			} else {
+				applyButton.classList.add('hidden');
+			}
+		}
+	</script>
+
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="total-section">
+						<table class="total-table">
+							<thead class="total-table-head">
+								<tr class="table-total-row">
+									<th>Facture</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+							 <tr class="total-data">
+                            <td><strong>Montant total</strong></td>
+<td>
+    {{ totalPrix | number_format(3, '.', ' ') }} DT
+	 &nbsp;|&nbsp;
+    {{ prixEnEuros | number_format(3, '.', ' ') }} EUR
+    &nbsp;|&nbsp;
+    {{ prixEnDollars | number_format(3, '.', ' ') }} $
+    &nbsp;|&nbsp;
+    {{ prixEnYuan | number_format(3, '.', ' ') }} ¥
+</td>                         </tr>
+							</tbody>
+						</table>
+						<div class="cart-buttons">
+							<a  href="{{ path('app_commande_add', {'idp':panier.idpanier}) }}" class="boxed-btn black">Passer Commande</a>
+							<a href="{{ path('app_commande_delete', {'idp':panier.idpanier}) }}" class="boxed-btn">Annuler</a>
+						</div>
+					</div>
+
+					<div class="coupon-section">
+						<h3>Apply Coupon</h3>
+						<div class="coupon-form-wrap">
+							<form action="{{ path('apply_coupon', {'idp':panier.idpanier}) }}" method="post">
+								<p><input type="text" placeholder="Coupon" name="coupon" oninput="toggleApplyButton()"></p>
+								<p><input type="submit" value="Apply" id="apply_button" class="hidden"></p>  <!-- Bouton caché -->
+							</form>
+						</div>
+					</div>
+					{% for message in app.flashes('success') %}
+					<div class="alert alert-success">{{ message }}</div>
+				{% endfor %}
+				{% for message in app.flashes('error') %}
+					<div class="alert alert-danger">{{ message }}</div>
+				{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end cart -->
+
+	<!-- logo carousel -->
+	<div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo-carousel-inner">
+						<div class="single-logo-item">
+							<img src="/front/assets/img/company-logos/1.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="/front/assets/img/company-logos/2.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="/front/assets/img/company-logos/3.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="/front/assets/img/company-logos/4.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="/front/assets/img/company-logos/5.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end logo carousel -->
+
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">About us</h2>
+						<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Get in Touch</h2>
+						<ul>
+							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+							<li>support@fruitkha.com</li>
+							<li>+00 111 222 3333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Pages</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="services.html">Shop</a></li>
+							<li><a href="news.html">News</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribe</h2>
+						<p>Subscribe to our mailing list to get the latest updates.</p>
+						<form action="index.html">
+							<input type="email" placeholder="Email">
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
+	
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
+						Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+					</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
+	
+	<!-- jquery -->
+	<script src="/front/assets/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="/front/assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="/front/assets/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="/front/assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="/front/assets/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="/front/assets/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="/front/assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="/front/assets/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="/front/assets/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="/front/assets/js/main.js"></script>
+
+</body>
+</html>

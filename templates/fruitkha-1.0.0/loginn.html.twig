@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+{% block body %}
+<head>
+    <meta charset="UTF-8">
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+  
+<body>
+<div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+        <div class="front">
+            <img src="assets/img/frontImg.jpg" alt="">
+            <div class="text">
+                <span class="text-1">Every new friend is a <br> new adventure</span>
+                <span class="text-2">Let's get connected</span>
+            </div>
+        </div>
+        <div class="back">
+            <img class="backImg" src="assets/img/backImg.jpg" alt="">
+            <div class="text">
+                <span class="text-1">Complete miles of journey <br> with one step</span>
+                <span class="text-2">Let's get started</span>
+            </div>
+        </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+            <div class="login-form">
+                <div class="title">Login</div>
+                <form action="{{ path('app_login') }}" method="post" novalidate>
+        <label for="email">Adresse email</label>
+        <input type="email" id="email" name="_username" required>
+
+
+        <br><label for="password">Mot de passe</label>
+        <input type="password" id="password" name="_password" required>
+
+       
+
+   <br> <label for="code">Authentication Code</label>
+    <input type="text" id="code" name="code" required>
+   
+
+
+        <button type="submit">connexion</button>
+         <a href="{{ path('app_forgot_password') }}">Mot de passe oublié</a>
+    </form>
+
+                <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
+            </div>
+            <div class="signup-form">
+                <div>
+                    <div class="title">Signup</div>
+
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                   <label>user name </label>
+                    {{ form_widget(form.nomuser) }}
+                    <div class="error">{{ form_errors(form.nomuser) }}</div>
+                     <label>user surname </label>
+                    {{ form_widget(form.prenomuser) }}
+                    <div class="error">{{ form_errors(form.prenomuser) }}</div>
+                     <label>User email </label>
+                    {{ form_widget(form.emailuser) }}
+                    <div class="error">{{ form_errors(form.emailuser) }}</div>
+                     <label>Password </label>
+                    {{ form_widget(form.mdp) }}
+                    <div class="error">{{ form_errors(form.mdp) }}</div>
+                     <label>Phone number </label>
+                    {{ form_widget(form.numtel) }}
+                    <div class="error">{{ form_errors(form.numtel) }}</div>
+<div>
+   {{ form_row(form.image) }}
+      <div class="error">{{ form_errors(form.image) }}</div>
+  
+  </div>
+                    <div class="button input-box">
+                        <button type="submit">Submit</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+                <div class="text sign-up-text">Login? <label for="flip">login now</label></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<!-- Modal dialog for displaying error messages -->
+<div id="error-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="error-message"></p>
+    </div>
+</div>
+
+<!-- Your JavaScript code -->
+<script>
+    // Select the modal and the close button
+    var modal = document.getElementById('error-modal');
+    var closeButton = modal.querySelector('.close');
+
+    // Add event listener to close button to hide the modal
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    // Submit login form via AJAX
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var form = event.target;
+        var formData = new FormData(form);
+
+        // Send AJAX request
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json()) // Parse JSON response
+        .then(data => {
+            // Check if the response contains an error
+            if (data.error) {
+                // Display error message in the modal
+                var errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = data.error;
+                modal.style.display = 'block';
+            } else {
+                // Check if the response contains a redirect URL
+                if (data.redirectUrl) {
+                    // Redirect to the appropriate page on successful login
+                    window.location.href = data.redirectUrl;
+                } else {
+                    // Redirect to default page
+                    window.location.href = '/';
+                }
+            }
+        })
+        .catch(error => {
+            console.error('There was an error!', error);
+        });
+    });
+</script>
+{% endblock %}

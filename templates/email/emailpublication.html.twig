@@ -1,0 +1,23 @@
+{# templates/email/new_publication.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle publication ajoutée</title>
+</head>
+<body>
+    <h1>Nouvelle publication ajoutée</h1>
+    
+    <p>Bonjour {{ user.getPrenomuser() }},</p>
+
+    <p>Une nouvelle publication a été ajoutée avec succès !</p>
+
+    <p>Titre : {{ publication.getTitrepublication() |raw }}</p>
+    <p>Description : {{ publication.getDescription() |raw }}</p>
+
+    <p>Cordialement,<br>
+    Esprit Market</p>
+</body>
+</html>

@@ -1,0 +1,332 @@
+{# templates/publication/editPublication.html.twig #}
+
+{% extends 'publication/base.html.twig' %}
+
+{% block title %}Modifier une Publication{% endblock %}
+
+{% block body %}
+    <div class="container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo" href="/back/index.html"><img src="/back/assets/images/logo.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="/back/index.html"><img src="/back/assets/images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="/back/assets/images/faces/face15.jpg" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal"></h5>
+                  <span>Admin</span>
+                </div>
+              </div>
+              
+              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-primary"></i>
+                    </div>
+                  </div>
+                 
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword  text-info"></i>
+                    </div>
+                  </div>
+                  
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar-today text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Nos Gestions</span>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../../publication/Listpublication">
+              <span class="menu-icon">
+                <i class="mdi mdi-bullhorn"></i>
+              </span>
+              <span class="menu-title">Publication</span>
+            </a>
+          </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/publication/add">
+              <span class="menu-icon">
+                <i class="mdi mdi-plus"></i>
+              </span>
+              <span class="menu-title">Modifier une Publication</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/publication/edit_publication">
+              <span class="menu-icon">
+                <i class="mdi mdi-update"></i>
+              </span>
+              <span class="menu-title">Modifier Publication</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="/back/assets/images/logo-mini.svg" alt="logo" /></a>
+          </div>
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu"></span>
+            </button>
+            
+            <ul class="navbar-nav navbar-nav-right">
+             
+              
+              <li class="nav-item dropdown border-left">
+                
+                
+              </li>
+              <li class="nav-item dropdown border-left">
+                
+                
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle" src="/back/assets/images/faces/face15.jpg" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Yassine Dhahbi</p>
+                  </div>
+                </a>
+                
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Ajouter une Publication </h3>
+             
+            </div>
+            <div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Formulaire de Publication</h4>
+                <p class="card-description">Modifier les détails de la publication</p>
+
+                {# Afficher l'image sélectionnée #}
+                <div class="form-group" id="preview-image">
+                    {% if form.vars.data.imagePublication %}
+                        {% set image_path = app.request.schemeAndHttpHost ~ '/images/' ~ form.vars.data.imagePublication %}
+                        <img src="{{ image_path }}" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover; border-radius: 5px;" alt="Image de Publication">
+                    {% else %}
+                        <p>Aucune image sélectionnée</p>
+                    {% endif %}
+                </div>
+
+                {# Afficher le formulaire PublicationType #}
+                {{ form_start(form , {'attr': {'novalidate': 'novalidate'}}) }}
+                <div class="form-group">
+    {{ form_label(form.titrePublication, 'Titre de la Publication') }}
+    {{ form_widget(form.titrePublication, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le titre de la publication', 'onkeyup': 'validateTitre(this)'}}) }}
+    {% if form_errors(form.titrePublication)|length > 0 %}
+        <span class="text-danger">{{ form_errors(form.titrePublication)|first }}</span>
+    {% endif %}
+    <span id="titreError" class="text-danger" style="display: none;">Veuillez entrer le titre de publication</span>
+</div>
+
+<script>
+    function validateTitre(input) {
+            var titreValue = input.value.trim();
+            var titreError = document.getElementById('titreError');
+            var modifierBtn = document.getElementById('modifierBtn');
+
+            if (titreValue === '') {
+                titreError.style.display = 'block';
+                modifierBtn.disabled = true;
+            } else {
+                titreError.style.display = 'none';
+                checkFormValidity();
+            }
+        }
+
+    function validateDescription(input) {
+            var descriptionValue = input.value.trim();
+            var descriptionError = document.getElementById('descriptionError');
+            var modifierBtn = document.getElementById('modifierBtn');
+
+            if (descriptionValue === '') {
+                descriptionError.style.display = 'block';
+                modifierBtn.disabled = true;
+            } else {
+                descriptionError.style.display = 'none';
+                checkFormValidity();
+            }
+        }
+        function checkFormValidity() {
+            var titreValue = document.getElementById('publication_titrePublication').value.trim();
+            var descriptionValue = document.getElementById('publication_description').value.trim();
+            var modifierBtn = document.getElementById('modifierBtn');
+
+            if (titreValue !== '' && descriptionValue !== '') {
+                modifierBtn.disabled = false;
+            } else {
+                modifierBtn.disabled = true;
+            }
+        }
+
+    
+
+    
+</script>
+
+                <div class="form-group">
+    {{ form_label(form.description, 'Description de la Publication') }}
+    {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Entrez la description de la publication', 'onkeyup': 'validateDescription(this)'}}) }}
+    {% if form_errors(form.description)|length > 0 %}
+        <span class="text-danger">{{ form_errors(form.description)|first }}</span>
+    {% endif %}
+    <span id="descriptionError" class="text-danger" style="display: none;">Veuillez entrer la Description.</span>
+</div>
+
+                <div class="form-group">
+    {{ form_label(form.imagePublication) }}
+    {{ form_widget(form.imagePublication, {'attr': {'class': 'form-control', 'onchange': 'validateImageFileType(this)'}}) }}
+    <span id="imageError" class="text-danger" style="display: none;">Veuillez sélectionner un fichier de type JPG ou PNG.</span>
+</div>
+
+<script>
+    function validateImageFileType(input) {
+        const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+        const errorMessage = document.getElementById('imageError');
+
+        if (!allowedExtensions.test(input.value)) {
+            errorMessage.style.display = 'block';
+            input.value = ''; // Effacer la valeur du champ
+        } else {
+            errorMessage.style.display = 'none';
+            updatePreviewImage(input); // Mettre à jour l'aperçu de l'image
+        }
+    }
+
+    function updatePreviewImage(input) {
+        const preview = document.getElementById('preview');
+        const noImageText = document.getElementById('noImageText');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                noImageText.style.display = 'none';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            preview.style.display = 'none';
+            noImageText.style.display = 'block';
+            preview.src = '#';
+        }
+    }
+</script>
+
+                {# Champ caché pour datePublication #}
+                {{ form_widget(form.datePublication) }}
+
+    <button id="modifierBtn" type="submit" class="btn btn-primary mr-2" >Modifier</button>
+                <a href="{{ path('reset_publication') }}" class="btn btn-dark">Reset</a>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}
+    <script>
+        function updatePreviewImage(input) {
+            var preview = document.getElementById('preview-image');
+            while (preview.firstChild) {
+                preview.removeChild(preview.firstChild);
+            }
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'img-fluid';
+                    img.style.width = '100px';
+                    img.style.height = '100px';
+                    img.style.objectFit = 'cover';
+                    img.style.borderRadius = '5px';
+                    preview.appendChild(img);
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                var p = document.createElement('p');
+                p.innerText = 'Aucune image sélectionnée';
+                preview.appendChild(p);
+            }
+        }
+    </script>
+{% endblock %}
+
+
+
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- Inclure le script JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sélectionnez le bouton Cancel
+            const resetButton = document.getElementById('resetButton');
+
+            // Écoutez le clic sur le bouton Cancel
+            resetButton.addEventListener('click', function () {
+                // Réinitialiser les valeurs des champs du formulaire
+                const form = document.getElementById('publicationForm');
+                const formFields = form.querySelectorAll('input, textarea');
+
+                formFields.forEach(function (field) {
+                    field.value = '';
+                });
+            });
+        });
+    </script>
+{% endblock %}

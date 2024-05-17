@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}bienvenue!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+
+        {% block stylesheets %}
+            <!-- Backend -->
+    <link rel="stylesheet" href="{{ asset ('/back/assets/vendors/mdi/css/materialdesignicons.min.css') }} ">
+    <link rel="stylesheet" href="{{ asset ('/back/assets/vendors/css/vendor.bundle.base.css') }}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset ('/back/assets/vendors/jvectormap/jquery-jvectormap.css') }}">
+    <link rel="stylesheet" href="{{ asset ('/back/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset ('/back/assets/vendors/owl-carousel-2/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset ('/back/assets/vendors/owl-carousel-2/owl.theme.default.min.css')}}">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset ('/back/assets/css/style.css') }}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{{ asset ('/back/assets/images/logo.svg') }}" />
+
+    
+    <!-- FrontEnd -->
+	<link rel="shortcut icon" type="image/png" href="{{ asset ('/front/asset/img/favicon.png')}}">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{{ asset ('/front/asset/css/all.min.css')}}">
+	<!-- bootstrap -->
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{{ asset ('/front/asset/css/owl.carousel.css')}}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{{ asset ('/front/asset/css/magnific-popup.css')}}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{{ asset ('/front/asset/css/animate.css')}}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{{ asset ('/front/asset/css/meanmenu.min.css')}}">
+	<!-- main style -->
+	<!-- responsive -->
+	<link rel="stylesheet" href="{{ asset ('/front/asset/css/responsive.css')}}">
+        {% endblock %}
+
+
+        {% block javascripts %}
+            <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{ asset ('/back/assets/vendors/js/vendor.bundle.base.js')}}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{ asset ('/back/assets/vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{ asset ('/back/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
+    <script src="{{ asset ('/back/assets/vendors/jvectormap/jquery-jvectormap.min.js')}}"></script>
+    <script src="{{ asset ('/back/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+    <script src="{{ asset ('/back/assets/vendors/owl-carousel-2/owl.carousel.min.js')}}"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{ asset ('/back/assets/js/off-canvas.js')}}"></script>
+    <script src="{{ asset ('/back/assets/js/hoverable-collapse.js')}}"></script>
+    <script src="{{ asset ('/back/assets/js/misc.js')}}"></script>
+    <script src="{{ asset ('/back/assets/js/settings.js')}}"></script>
+    <script src="{{ asset ('/back/assets/js/todolist.js')}}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{{ asset ('/back/assets/js/dashboard.js')}}"></script>
+    <!-- End custom js for this page -->
+
+
+    <!-- FrontEnd -->
+	
+	<!-- jquery -->
+	<script src="{{ asset ('/front/asset/js/jquery-1.11.3.min.js')}}"></script>
+	<!-- bootstrap -->
+	<script src="{{ asset ('/front/asset/bootstrap/js/bootstrap.min.js')}}"></script>
+	<!-- count down -->
+	<script src="{{ asset ('/front/asset/js/jquery.countdown.js')}}"></script>
+	<!-- isotope -->
+	<script src="{{ asset ('/front/asset/js/jquery.isotope-3.0.6.min.js')}}"></script>
+	<!-- waypoints -->
+	<script src="{{ asset ('/front/asset/js/waypoints.js')}}"></script>
+	<!-- owl carousel -->
+	<script src="{{ asset ('/front/asset/js/owl.carousel.min.js')}}"></script>
+	<!-- magnific popup -->
+	<script src="{{ asset ('/front/asset/js/jquery.magnific-popup.min.js')}}"></script>
+	<!-- mean menu -->
+	<script src="{{ asset ('/front/asset/js/jquery.meanmenu.min.js')}}"></script>
+	<!-- sticker js -->
+	<script src="{{ asset ('/front/asset/js/sticker.js')}}"></script>
+	<!-- main js -->
+	<script src="{{ asset ('/front/asset/js/main.js')}}"></script>
+
+
+
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

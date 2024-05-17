@@ -1,0 +1,48 @@
+security:
+    enable_authenticator_manager: true
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\UserInterface: 'bcrypt'
+    # Utiliser un fournisseur de données utilisateur basé sur une entité
+    providers:
+        my_provider:
+            entity:
+                class: App\Entity\User
+                property: emailuser # Utilisez la propriété appropriée pour l'authentification (par exemple, email ou nom d'utilisateur)
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            provider: my_provider # Utiliser le fournisseur de données utilisateur défini ci-dessus
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#the-firewall
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+            logout: # Configuration de la déconnexion
+                path: app_logout # Chemin de la déconnexion
+                # Ajoutez d'autres configurations de déconnexion si nécessaire
+
+    # Contrôle d'accès pour les différentes parties de votre site
+    # Note: Seule la première règle d'accès qui correspond sera utilisée
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+
+when@test:
+    security:
+        password_hashers:
+            # Par défaut, les hasheurs de mots de passe sont gourmands en ressources et prennent du temps. Cela est
+            # important pour générer des hachages de mots de passe sécurisés. Cependant, dans les tests, des hachages sécurisés
+            # ne sont pas importants, gaspillent des ressources et augmentent les temps de test. Le suivant
+            # réduit le facteur de travail aux valeurs les plus basses possibles.
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4 # Valeur la plus basse possible pour bcrypt
+                time_cost: 3 # Valeur la plus basse possible pour argon
+                memory_cost: 10 # Valeur la plus basse possible pour argon

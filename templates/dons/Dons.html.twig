@@ -1,0 +1,432 @@
+
+{# templates/dons/Dons.html.twig #}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Faire un don</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="/front/assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="/front/assets/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="/front/assets/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="/front/assets/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="/front/assets/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="/front/assets/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="/front/assets/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="/front/assets/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="/front/assets/css/responsive.css">
+	 <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+	     <style>
+        /* Alignement à droite */
+        .header-icons {
+            display: flex;
+            justify-content: flex-end; /* Alignement des éléments à droite */
+            align-items: center; /* Centre les éléments verticalement */
+        }
+
+        /* Style pour le nom d'utilisateur */
+        .username {
+            color: #ffffff; /* Couleur du texte en blanc */
+            margin-left: 10px; /* Marge à gauche pour espacer du reste des icônes */
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+	
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+	
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+										<!-- logo -->
+						<div class="site-logo">
+							<a href="{{path('app_produit')}}">
+								<img src="/front/assets/img/logo.png" alt="" class="logo-img">
+							</a>
+						</div>
+						<style>
+							.logo-img {
+								max-width: 250px; /* ajustez la valeur en fonction de la taille maximale souhaitée */
+                               height: auto;
+							   margin-top: -12px;
+							}
+						</style>
+						<!-- logo -->
+						<!-- logo -->
+
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li><a href="{{path('app_produit')}}">Home</a></li>
+								<li class="current-list-item"><a href="#">Dons</a>
+									<ul class="sub-menu">
+                                        <li><a href='/dons'>Faire un don</a></li>
+										<li><a href='/demander_dons'>Demander dons</a></li>
+										
+									</ul>
+								</li>
+								<li ><a href="{{ path('app_evenement_front')}}">Evénements</a>
+									<ul class="sub-menu">
+										<li><a href="{{ path('app_evenement_front')}}">Evénements</a></li>
+										<li><a href="{{ path('app_reclamation_new')}}">Réclamation</a></li>
+									</ul>
+								</li>
+								<li><a href="{{path('front_publication')}}">Publications</a></li>
+
+
+								<li  class="sub-menu"><a href="{{ path('app_produit_front')}}">Produits</a>
+									<ul class="sub-menu">
+										<li ><a href="{{ path('afficher_produit_panier', {'idUser': user.iduser}) }}">Panier</a></li>
+									</ul>
+								</li>
+								<li>
+									<div class="header-icons">
+										<a class="shopping-cart" href="{{ path('afficher_produit_panier', {'idUser': user.iduser}) }}"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<a class="logout-icon" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+<a href="{{ path('app_profile_user') }}" class="btn btn-primary rounded-pill py-2 px-3">
+    <i class="fas fa-user"></i> <!-- Icône utilisateur -->
+</a>
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+	
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Dons</p>
+						<h1>Faire un don</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+	
+
+<div class="center">
+   
+
+    <div class="right">
+        <img src="https://smartrevision.net/wp-content/uploads/2023/01/Optimized-coinz-150x150.jpeg" width="40" height="40">
+        <div class="points-inner">
+            <span style="font-size: 30px;">Vous avez</span>
+            <label style="font-size: 30px; font-weight: bold;">{{ nbPointsUtilisateur }} Points</label>
+        </div>
+    </div>
+</div>
+<style>
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.left, .right {
+    display: flex;
+    align-items: center;
+}
+
+</style>
+	<!-- end breadcrumb section -->
+	<!-- end search area -->
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-10">
+            <div class="single-product-item">
+                <h1 style="font-size: 30px; text-align: center;">Faire un don</h1>
+
+                <form method="post" style="text-align: center;">
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                    <div class="form-group">
+                        {{ form_label(form.nbpoints, 'Saisir le nombre de points :', {'label_attr': {'class': 'col-form-label text-center'}}) }}
+                        <div class="form-group text-center">
+                            {{ form_widget(form.nbpoints, {'attr': {'class': 'form-control', 'style': 'width: 60%; margin: 0 auto;'}}) }}
+                            {% if form_errors(form.nbpoints) %}
+                            <div class="text-danger">
+                                {{ form_errors(form.nbpoints) }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                      <div class="form-group text-center">
+                        {{ form_label(form.idEv, 'Choisissez un événement :', {'label_attr': {'class': 'col-form-label text-left'}}) }}
+                        <div class="form-group" style="width: 60%; margin: 0 auto;">
+                            {{ form_widget(form.idEv, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-warning">Faire un don</button>
+                    </div>
+                    {{ form_end(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
+
+
+
+
+
+<div class="latest-news mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            {% for evenement in evenementsDons %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-latest-news">
+                        <a href=""><div class=""></div></a>
+                        <div class="news-text-box">
+                            <img src="{{ asset('images/' ~ evenement.imageEv) }}" alt="">
+                            <h3><a href="single-news.html">{{ evenement.nomEv }}</a></h3>
+                            <p class="blog-meta">
+                                <span class="date"><i class="fas fa-calendar"></i>{{ evenement.date()|date('Y-m-d H:i:s') }}</span>
+                            </p>
+                            <p class="excerpt">Points gagnés: {{ evenement.nbPoints }}</p>
+                            
+                            {% set totalPointsEvenement = evenement.nbPoints %}
+                            {% set pourcentageProgression = (totalPointsEvenement / maximumPoints) * 100 %}
+
+                            <div class="progress progress-md portfolio-progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ pourcentageProgression }}%" aria-valuenow="{{ pourcentageProgression }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <h3 style="text-align: center;">Historique des dons</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre de points</th>
+            <th>Date d'ajout</th>
+            <th>État du don</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set totalPoints = 0 %}
+        {% for don in dons %}
+            <tr>
+                <td >{{ don.nbPoints }}</td>
+                <td>{{ don.dateAjout | date('Y-m-d H:i:s') }}</td>
+                <td>{{ don.etatStatutDons }}</td>
+                <td>
+				        {% if don.getEtatstatutdons() != 'reçu' %}
+
+                    <!-- Icône pour modifier -->
+<a href="{{ path('edit_don', {'id': don.idDons}) }}"><i class="fas fa-edit"></i></a>
+
+                    
+                    <!-- Icône pour supprimer -->
+<a href="#" class="delete-link" data-toggle="modal" data-target="#confirmDeleteModal-{{ don.idDons }}">
+    <i class="fas fa-trash"></i>
+</a>
+
+<!-- Modal de confirmation de suppression -->
+<div class="modal fade" id="confirmDeleteModal-{{ don.idDons }}" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmation de suppression</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Êtes-vous sûr de vouloir supprimer ce don ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <!-- Formulaire de suppression -->
+                <form action="{{ path('don_delete', {'id': don.idDons}) }}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ don.idDons) }}">
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                </td>
+				{% else %}
+            <td></td> <!-- Ne rien afficher si l'état est "reçu" -->
+        {% endif %}
+            </tr>
+            {% set totalPoints = totalPoints + don.nbPoints %}
+        {% endfor %}
+        <tr>
+            <td colspan="4" class="text-right">Total des points donnés : {{ totalPoints }}</td>
+        </tr>
+		
+    </tbody>
+</table>
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">About us</h2>
+						<p>At Esprit Market, we believe in the power of connecting people with the products they love. Our journey began with a simple idea: to create a vibrant online marketplace where shoppers can discover an unparalleled selection of products from around the world, all in one convenient place.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Get in Touch</h2>
+						<ul>
+							<li>34/8, Ariana Soghra, Tunis.</li>
+							<li>espritmarket@outlook.com</li>
+							<li>+55 666 333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Pages</h2>
+						<ul>
+							<li><a href="{{path('app_produit')}}">Home</a></li>
+							<li><a href="'/dons'">Faire un don</a></li>
+							<li><a href="{{ path('app_evenement_front')}}">Evénements</a></li>
+							<li><a href="{{path('front_publication')}}">Publications</a></li>
+							<li><a href="{{ path('app_produit_front')}}">Produit</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
+	
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- end copyright -->
+	
+<!-- jquery -->
+	<script src="/front/assets/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="/front/assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="/front/assets/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="/front/assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="/front/assets/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="/front/assets/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="/front/assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="/front/assets/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="/front/assets/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="/front/assets/js/main.js"></script>
+	<!-- Flashy depends on jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Load Flashy default JavaScript -->
+    <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+
+
+</body>
+

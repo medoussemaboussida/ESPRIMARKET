@@ -1,0 +1,108 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+afficher_produit_panier:
+    path: /afficher-panier/{idUser}
+    controller: App\Controller\ProduitcartController::afficherPanier
+dons_page:
+    path: /dons
+    controller: App\Controller\DonsController::index
+# config/routes.yaml
+don_delete:
+    path: /dons/{id}/delete
+    controller: App\Controller\DonsController::delete
+    methods: [POST] # Vous pouvez également inclure DELETE si vous voulez supporter les deux méthodes
+
+# config/routes.yaml
+
+edit_don:
+    path: '/edit/{id}'
+    controller: 'App\Controller\DonsController::editDon'
+
+demander_dons:
+    path: '/demander_dons'
+    controller: 'App\Controller\DemandeDonsController::demanderDons'
+    methods: ['GET', 'POST']
+
+
+
+transfer_points:
+    path: /transfer_points
+    controller: 'App\Controller\DemandeDonsController::transferPoints'
+    methods: ['POST']
+
+admin_dons:
+    path: /admin/dons
+    controller: App\Controller\DonsController::backDons
+
+
+update_etat_dons:
+    path: '/update_etat_dons/{id}'
+    controller: 'App\Controller\DonsController::updateEtatDons'
+    methods: ['POST']
+
+admin_demandedons:
+    path: '/admin/demandedons'
+    controller: 'App\Controller\DemandeDonsController::backDemandesDons'
+
+
+add_points_to_event_form:
+    path: '/evenement/{eventId}/ajouter-points'
+    controller: 'App\Controller\DonsController::addPointsToEventForm'
+    methods: ['GET', 'POST']
+
+
+
+admin_dons_delete:
+    path: /admin/dons/{id}/delete
+    controller: App\Controller\DonsController::deleteDon
+    methods: ['GET', 'POST']
+
+admin_demandedons_delete:
+    path: /admin/demandedons/{id}/delete
+    controller: App\Controller\DemandeDonsController::deleteDemande
+    methods: ['GET', 'POST']
+
+modifier_points_don:
+    path: '/modifier-points/{id}'
+    controller: 'App\Controller\DonsController::modifierPointsDon'
+    methods: ['GET', 'POST']
+
+
+modifier_points_demande_don:
+    path: /modifier-points-demande/{id}
+    controller: App\Controller\DemandeDonsController::modifierPointsDemandeDon
+    methods: ['GET', 'POST']
+
+
+demander_dons_action:
+    path: /demander_dons_action
+    controller: App\Controller\DemandeDonsController::demanderDonsAction
+    methods: [GET, POST]
+
+
+
+afficher_dons:
+    path: /afficher-dons
+    controller: App\Controller\DonsController::afficherDonsFiltre
+# config/routes.yaml
+
+app_login:
+    path: /login
+    controller: App\Controller\UtilisateurController::login
+
+app_utilisateur:
+    path: /utilisateur
+    controller: App\Controller\UtilisateurController::index
+
+
+search:
+    path: /search
+    controller: App\Controller\DonsController::search
+    methods: GET
+
+app_publication:
+    path: /publication/Listpublication
+    controller: App\Controller\PublicationController::index
+

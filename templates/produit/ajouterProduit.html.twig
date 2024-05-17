@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Gestion des produits</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/back/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/back/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/back/assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/back/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/back/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="/back/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/back/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/back/assets/images/ourlogo.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo" href="index.html"><img src="/back/assets/images/logo.svg" alt="logo" style="width: 200px; height: auto;" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="/back/assets/images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="/back/assets/images/faces/face15.jpg" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">{{ user.prenomuser}}</h5>
+                  <span>EspritMarket Admin</span>
+                </div>
+              </div>
+              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword  text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar-today text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="/users">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Utilisateurs</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/categorie/ajouter">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Categorie</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items active">
+            <a class="nav-link" href="/produit/ajouter">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Produit</span>
+            </a>
+          </li>
+
+           <li class="nav-item menu-items">
+            <a class="nav-link" href="/commande/commande-back">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Commande</span>
+            </a>
+          </li>
+          
+     <!--dons sidebar-->
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/admin/dons">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Dons</span>
+            </a>
+          </li>
+
+           <li class="nav-item menu-items">
+            <a class="nav-link" href="/admin/demandedons">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Demande Dons</span>
+            </a>
+          </li>
+
+          <!--Publication commentaire sidebar-->
+           <li class="nav-item menu-items">
+            <a class="nav-link"  href="../../publication/Listpublication">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Publication</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Commentaire</span>
+            </a>
+          </li>
+
+     <!--Offre codepromo sidebar-->
+           <li class="nav-item menu-items">
+            <a class="nav-link" href="/afficher-offres">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Offre</span>
+            </a>
+          </li>
+           <li class="nav-item menu-items">
+            <a class="nav-link" href="/afficher-codes">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Code Promo</span>
+            </a>
+          </li>
+ 
+          <!--evenement reclamation sidebar-->
+   <li class="nav-item menu-items ">
+            <a class="nav-link" href="/evenement/back/event">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Evénements</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/reclamation/back">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Réclamations</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">Utilisateurs</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/back/pages/samples/blank-page.html"> Blank Page </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/back/pages/samples/error-404.html"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/back/pages/samples/error-500.html"> 500 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/back/pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/back/pages/samples/register.html"> Register </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/back/assets/images/logo-mini.svg" alt="logo" /></a>
+          </div>
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          <ul class="navbar-nav w-100">
+          <li class="nav-item w-100">
+           <form action="{{ path('app_produit_search') }}" method="get" class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+               <input type="text" name="search" id="search" class="form-control" placeholder="Search products">
+             <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+                    <div id="search-results"></div>
+
+            </li>
+            <script>
+$(document).ready(function() {
+    $('#search-form').submit(function(e) {
+        e.preventDefault(); // Empêche le formulaire d'être soumis normalement
+
+        // Récupérer la valeur du champ de saisie
+        var searchTerm = $('#search').val();
+
+        $.ajax({
+            type: 'GET',
+            url: '{{ path('app_produit_search') }}', // Endpoint de recherche AJAX
+            data: {
+                keyword: searchTerm
+            },
+            success: function(response) {
+                // Mettre à jour l'interface utilisateur avec les résultats de la recherche
+                $('#product-table-body').html(response);
+            }
+        });
+    });
+});
+</script>
+
+            </ul>								
+
+            
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown d-none d-lg-block">
+<a class="btn btn-danger" id="createbuttonDropdown" href="{{ path('app_logout') }}" data-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-sign-out-alt mr-2"></i> <!-- Ajoute une icône de déconnexion -->
+    Logout
+</a>                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
+                  <h6 class="p-3 mb-0">Projects</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-file-outline text-primary"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Software Development</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-web text-info"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">UI Development</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-layers text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Software Testing</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">See all projects</p>
+                </div>
+              </li>
+              <li class="nav-item nav-settings d-none d-lg-block">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-view-grid"></i>
+                </a>
+              </li>
+              <li class="nav-item dropdown border-left">
+                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                  <i class="mdi mdi-email"></i>
+                  <span class="count bg-success"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                  <h6 class="p-3 mb-0">Messages</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img src="/back/assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
+                      <p class="text-muted mb-0"> 1 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img src="/back/assets/images/faces/face2.jpg" alt="image" class="rounded-circle profile-pic">
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
+                      <p class="text-muted mb-0"> 15 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img src="/back/assets/images/faces/face3.jpg" alt="image" class="rounded-circle profile-pic">
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
+                      <p class="text-muted mb-0"> 18 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">4 new messages</p>
+                </div>
+              </li>
+              <li class="nav-item dropdown border-left">
+                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                  <i class="mdi mdi-bell"></i>
+                  <span class="count bg-danger"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <h6 class="p-3 mb-0">Notifications</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Event today</p>
+                      <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="text-muted ellipsis mb-0"> Update dashboard </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-link-variant text-warning"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Launch Admin</p>
+                      <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">See all notifications</p>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle" src="/back/assets/images/faces/face15.jpg" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name"></p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                  
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                  <h6 class="p-3 mb-0">Profile</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">Advanced settings</p>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+ 
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+                             {% for type, messages in app.flashes() %}
+    {% for message in messages %}
+        {% if type == 'success' %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+          <div class="row">
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Ajouter Produit</h4>
+                    <p class="card-description"></p>
+                   {% block body %}
+                   
+                  {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                   <div class="form-group" >
+                   {{ form_label(form.nomproduit, 'Nom de produit', {'attr': {'class': 'form-control-label'}}) }}
+                   {{ form_widget(form.nomproduit, {'attr': {'class': 'form-control', 'placeholder': 'Nom de produit'}}) }}
+                    <div class="text-danger">
+            {{ form_errors(form.nomproduit) }}
+        </div>
+
+                   </div>
+                   <div class="form-group" >
+                   {{ form_label(form.categorie, 'categorie', {'attr': {'class': 'form-control-label'}}) }}
+                   {{ form_widget(form.categorie, {'attr': {'class': 'form-control', 'placeholder': 'categorie'}}) }}
+                   </div>
+                   <div class="form-group" >
+                   {{ form_label(form.prix, 'Prix', {'attr': {'class': 'form-control-label'}}) }}
+                   {{ form_widget(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Prix'}}) }}
+                    <div class="text-danger">
+                   {{ form_errors(form.prix) }}
+                   </div>
+                   </div>
+                   <div class="form-group" >
+                   {{ form_label(form.quantite, 'Quantite', {'attr': {'class': 'form-control-label'}}) }}
+                   {{ form_widget(form.quantite, {'attr': {'class': 'form-control', 'placeholder': 'Quantite'}}) }}
+                    <div class="text-danger">
+                   {{ form_errors(form.quantite) }}
+                   </div>
+                   </div>
+                   <div class="form-group">
+                   {{ form_label(form.imageproduit, 'Image', {'attr': {'class': 'form-control-label'}}) }}
+                   {{ form_widget(form.imageproduit, {'attr': {'class': 'form-control'}}) }}
+                    <div class="text-danger">
+                   {{ form_errors(form.imageproduit) }}
+                   </div>
+
+                   </div>
+                   <button type="submit" class="btn btn-primary">Ajouter</button>
+                   {{ form_end(form) }}
+                   {% endblock %}
+                  </div>
+                </div>
+              </div>
+             <div class="col-lg-6 grid-margin stretch-card">
+             <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Nombre de produits</h4>
+            <canvas id="pieChart" style="height:200px"></canvas>
+        </div>
+    </div>
+</div>
+</div>
+
+                   <div class="row ">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title text-center">Liste des produits</h4>
+                    <div class="table-responsive">
+                    <div class="row">
+                    
+    <div class="col-lg-2 text-center">
+    
+        <div class="form-group">
+            <select class="btn btn-primary" id="sort-options">
+                 <option  class="btn btn-primary" value="">Trier par</option>
+                <option value="{{ path('app_prix_asc')}}" class="btn btn-primary">Prix croissant</option>
+                <option value="{{ path('app_prix_desc')}}" class="btn btn-primary">Prix décroissant</option>
+                <option value="{{ path('app_nomproduit_asc')}}" class="btn btn-primary">Nom croissant</option>
+                 <option value="{{ path('app_nomproduit_desc')}}" class="btn btn-primary">Nom décroissant</option>
+
+
+            </select>
+        <script>
+    document.getElementById('sort-options').addEventListener('change', function() {
+        var selectedValue = this.value; // Récupérer la valeur de l'option sélectionnée
+
+        // Rediriger l'utilisateur vers l'URL de tri sélectionnée
+        if (selectedValue !== '') {
+            window.location.href = selectedValue;
+        }
+    });
+</script>
+
+        </div>
+    </div>
+    <div class="form-group">
+    <a class="btn btn-primary" href="{{ path('app_produit_pdf') }}" >PDF</a>
+    </div>
+</div>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>
+                              <div class="form-check form-check-muted m-0">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input">
+                                </label>
+                              </div>
+                            </th>
+                            <th> Nom produit </th>
+                            <th> Catégorie </th>
+                            <th> Quantité </th>
+                            <th> Prix (Dt) </th>
+                            <th> Image Produit </th>
+                            <th> Actions   </th>
+                          </tr>
+                        </thead>
+       <tbody id="product-table-body">
+    {% for produit in produits %}
+  <tr>
+    <td>
+      <div class="form-check form-check-muted m-0">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+        </label>
+      </div>
+    </td>
+    <td>{{ produit.nomproduit }}</td>
+    <td>{{ produit.categorie.nomcategorie }}</td>
+    <td>{{ produit.quantite }}</td>
+    <td>{{ produit.prix |number_format(3, '.', ' ') }}</td>
+    
+    <td>
+      {% if produit.imageproduit %}
+        <img src="{{ asset('images/' ~ produit.imageproduit) }}" alt="Image" style="width: 200px; height: auto;">
+      {% else %}
+        Aucune image
+      {% endif %}
+    </td>
+    <td>
+        <form id="deleteForm{{ produit.idproduit }}" action="{{ path('app_produit_supprimer', {'id': produit.idproduit}) }}" method="post" style="display: inline;">
+        <button type="button" class="btn btn-danger delete-btn" data-id="{{ produit.idproduit }}">Delete</button>
+    </form>
+    <form action="{{ path('app_produit_edit', {'id': produit.idproduit}) }}" style="display: inline;"> 
+     <button type="submit" class="btn btn-primary">Edit</button>
+      </form>
+      </td>
+      </tr>
+         {% endfor %}
+      </tbody>
+                      </table>
+ <div class="pagination-wrapper">
+    {% set pagination_html %}
+        {{ knp_pagination_render(pagination) }}    
+    {% endset %}
+    {% set replaced_html = pagination_html|replace({'<a ': '<a class="btn btn-danger" '}) %}
+    {% set replaced_html = replaced_html|replace({'<span class="current">': '<a class="btn btn-danger active" disabled>'}) %}
+    {% set replaced_html = replaced_html|replace({'</span>': '</a>'}) %}
+    {{ replaced_html|raw }}
+</div>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const productId = this.getAttribute("data-id");
+            const confirmation = confirm("Are you sure you want to delete this product?");
+
+            if (confirmation) {
+                const form = document.querySelector("#deleteForm" + productId);
+                if (form) {
+                    form.submit();
+                }
+            }
+        });
+    });
+});
+</script>
+<style>
+.pagination-wrapper {
+    text-align: center; /* Pour centrer les boutons de pagination */
+        margin-top: 20px; /* Ajoute une marge en haut pour plus d'espace */
+
+}
+
+.pagination-wrapper .pagination  {
+    display: inline-block; /* Pour afficher les boutons en ligne */
+}
+
+.pagination-wrapper .pagination  {
+    padding: 10px 10px; /* Pour ajouter de l'espace autour des boutons */
+    margin: 0 10px; /* Pour ajouter un petit espace entre les boutons */
+}
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('pieChart').getContext('2d');
+    const data = {
+            labels: {{ categories|map(category => category[0].nomCategorie)|json_encode|raw }},
+      datasets: [{
+        label: 'nombre de produits :',
+        data: {{ categories|map(category => category.count)|json_encode|raw }},
+        backgroundColor: [
+          '#4e73df',
+          '#1cc88a',
+          '#36b9cc',
+          '#f6c23e',
+          '#e74a3b',
+          '#9b59b6',
+          '#fbc02d',
+          '#7266ba',
+          '#4882c2',
+          '#6d5e63'
+        ],
+        borderColor: [
+          '#4e73df',
+          '#1cc88a',
+          '#36b9cc',
+          '#f6c23e',
+          '#e74a3b',
+          '#9b59b6',
+          '#fbc02d',
+          '#7266ba',
+          '#4882c2',
+          '#6d5e63'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    const config = {
+      type: 'pie',
+      data: data,
+      /*options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }*/
+    };
+
+    new Chart(ctx, config);
+  </script>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="back/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="back/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="back/assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="back/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="back/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="back/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="back/assets/js/off-canvas.js"></script>
+    <script src="back/assets/js/hoverable-collapse.js"></script>
+    <script src="back/assets/js/misc.js"></script>
+    <script src="back/assets/js/settings.js"></script>
+    <script src="back/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="back/assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>
