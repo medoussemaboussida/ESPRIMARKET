@@ -65,6 +65,17 @@ public function ajouterAvecCode(Request $request,$idp): Response
     $entityManager = $this->getDoctrine()->getManager();
     $entityManager->persist($commande);
     $entityManager->flush();
+     // Mettre à jour la quantité des produits dans le panier
+     foreach ($produitCart as $produitCartItem) {
+        $produitEntity = $produitCartItem->getIdproduit();
+        $nouvelleQuantite = $produitEntity->getQuantite() - 1;
+
+        $produitEntity->setQuantite($nouvelleQuantite);
+        $entityManager->persist($produitEntity);
+    }
+
+    // Enregistrer les changements de quantité
+    $entityManager->flush();
     $this->addFlash('success', 'Votre commande a bien été passée.');
        ///////////////////////sms//////////////////////////////////////
     /*  $utilisateur = $panier->getIduser();
@@ -118,41 +129,55 @@ public function ajouterAvecCode(Request $request,$idp): Response
 
 
 
-    //passer une commande dans partie front
-    #[Route('/commande/{idp}', name: 'app_commande_add')]
-    public function ajouter(Request $request,$idp): Response
-    {   
-        $panier = $this->getDoctrine()->getRepository(Panier::class)->find($idp);
-        $produitCart = $this->getDoctrine()->getRepository(Produitcart::class)->findBy(['idpanier' => $idp]);
-        if (empty($produitCart)) {
-            // Si la table produitcart est vide, rediriger l'utilisateur ou afficher un message d'erreur
-            $this->addFlash('error', 'Votre panier est vide.');
-            return $this->redirectToRoute('app_produit_front');
-        }
-        else {
-        //calcul montant facture pour l'envoyer sur sms
+   //passer une commande dans partie front
+#[Route('/commande/{idp}', name: 'app_commande_add')]
+public function ajouter(Request $request, int $idp, EntityManagerInterface $entityManager): Response
+{
+    $panier = $entityManager->getRepository(Panier::class)->find($idp);
+    $produitCart = $entityManager->getRepository(Produitcart::class)->findBy(['idpanier' => $idp]);
+
+    if (empty($produitCart)) {
+        // Si la table produitcart est vide, rediriger l'utilisateur ou afficher un message d'erreur
+        $this->addFlash('error', 'Votre panier est vide.');
+        return $this->redirectToRoute('app_produit_front');
+    } else {
+        // Calcul du montant de la facture pour l'envoyer par SMS
         $totalPrix = 0;
-        foreach ($produitCart as $produit) {
-            $totalPrix += $produit->getIdproduit()->getPrix(); 
+        foreach ($produitCart as $produitCartItem) {
+            $totalPrix += $produitCartItem->getIdproduit()->getPrix(); 
         }
-        
-        $dateCommande = new DateTimeImmutable();
-        // Créer une nouvelle instance de Produitcart
+
+        $dateCommande = new \DateTimeImmutable();
+        // Créer une nouvelle instance de Commande
         $commande = new Commande();
 
-        // Ajouter le produit au panier
+        // Ajouter le panier à la commande
         $commande->setIdpanier($panier);
         $commande->setDatecommande($dateCommande);
+
         if (!$commande->getIdpanier()) {
             throw new \ErrorException('idpanier field cannot be null.');
         }
-        // Enregistrer l'entité Produitcart
-        $entityManager = $this->getDoctrine()->getManager();
+
+        // Enregistrer l'entité Commande
         $entityManager->persist($commande);
         $entityManager->flush();
+
+        // Mettre à jour la quantité des produits dans le panier
+        foreach ($produitCart as $produitCartItem) {
+            $produitEntity = $produitCartItem->getIdproduit();
+            $nouvelleQuantite = $produitEntity->getQuantite() - 1;
+
+            $produitEntity->setQuantite($nouvelleQuantite);
+            $entityManager->persist($produitEntity);
+        }
+
+        // Enregistrer les changements de quantité
+        $entityManager->flush();
+
         $this->addFlash('success', 'Votre commande a bien été passée.');
-
-
+        return $this->redirectToRoute('app_produit_front');
+    
 
         ///////////////////////sms//////////////////////////////////////
     /*  $utilisateur = $panier->getIduser();

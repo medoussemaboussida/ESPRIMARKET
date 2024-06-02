@@ -30,46 +30,60 @@ class ProduitcartController extends AbstractController
   
  
 
-    //ajouter meme produit avec bouton +
-    #[Route('/produitcart/ajouterPlus/{id}/{idp}', name: 'app_produitcart_ajouter')]
-    public function ajouterP($id,$idp, ProduitcartRepository $repository, PanierRepository $panierRepository,Converter $converter): Response
-    {
-        
-        $panier = $panierRepository->find($idp);
-        $produit = $this->getDoctrine()->getRepository(Produit::class)->find($id);
+//ajouter meme produit avec bouton +
+#[Route('/produitcart/ajouterPlus/{id}/{idp}', name: 'app_produitcart_ajouter')]
+public function ajouterP($id, $idp, ProduitcartRepository $repository, PanierRepository $panierRepository, Converter $converter): Response
+{
+    $entityManager = $this->getDoctrine()->getManager();
+    $panier = $panierRepository->find($idp);
+    $produit = $entityManager->getRepository(Produit::class)->find($id);
 
-        $nouveauProduit = new Produitcart();
+    // Vérifier si le produit existe déjà dans le panier
+    $produitCart = $entityManager->getRepository(Produitcart::class)->findBy(['idpanier' => $panier, 'idproduit' => $produit]);
 
-        // Ajouter le produit au panier
-        $nouveauProduit->setIdproduit($produit);
-        $nouveauProduit ->setIdpanier($panier);
+    // Compter le nombre de fois que ce produit est dans le panier
+    $quantiteDansPanier = count($produitCart);
 
+    // Vérifier si la quantité maximale a été atteinte
+    if ($quantiteDansPanier >= $produit->getQuantite()) {
+        return new JsonResponse([
+            'success' => false,
+            'message' => 'La quantité maximale pour ce produit a été atteinte.',
+        ]);
+    }
+
+    // Ajouter le produit au panier
+    $nouveauProduit = new Produitcart();
+    $nouveauProduit->setIdproduit($produit);
+    $nouveauProduit->setIdpanier($panier);
 
     // Enregistrer le nouveau produit dans la base de données
-    $entityManager = $this->getDoctrine()->getManager();
     $entityManager->persist($nouveauProduit);
     $entityManager->flush();
 
-    $produitCart = $this->getDoctrine()->getRepository(Produitcart::class)->findBy(['idpanier' => $panier]);
+    // Recalculer les données du panier
+    $produitCart = $entityManager->getRepository(Produitcart::class)->findBy(['idpanier' => $panier]);
     $quantite = [];
     $produitsUniques = [];
- //calcul montant facture
- $totalPrix = 0;
- // Parcourez chaque produit et ajoutez son prix au total
- foreach ($produitCart as $produit) {
-     $totalPrix += $produit->getIdproduit()->getPrix(); 
- }
- $prixEnEuros = $converter->convert($totalPrix, 'TND', 'EUR');
- $prixEnDollars = $converter->convert($totalPrix, 'TND', 'USD');
- $prixEnYuan = $converter->convert($totalPrix, 'TND', 'CNY');
-    // Parcourir chaque produit dans le produitcart et si un produit se repete plusieurs fois , on stocke dans variable quantite , et affiche ce produit une seule fois dans le tableau
-    foreach ($produitCart as $produit) {
-    
-        if (array_key_exists($produit->getIdproduit()->getIdproduit(), $quantite)) {
-            $quantite[$produit->getIdproduit()->getIdproduit()]++;
+
+    // Calcul montant facture
+    $totalPrix = 0;
+    foreach ($produitCart as $produitItem) {
+        $totalPrix += $produitItem->getIdproduit()->getPrix();
+    }
+
+    $prixEnEuros = $converter->convert($totalPrix, 'TND', 'EUR');
+    $prixEnDollars = $converter->convert($totalPrix, 'TND', 'USD');
+    $prixEnYuan = $converter->convert($totalPrix, 'TND', 'CNY');
+
+    // Parcourir chaque produit dans le produitcart et compter les quantités
+    foreach ($produitCart as $produitItem) {
+        $produitId = $produitItem->getIdproduit()->getIdproduit();
+        if (array_key_exists($produitId, $quantite)) {
+            $quantite[$produitId]++;
         } else {
-            $quantite[$produit->getIdproduit()->getIdproduit()] = 1;
-            $produitsUniques[$produit->getIdproduit()->getIdproduit()] = $produit->getIdproduit();
+            $quantite[$produitId] = 1;
+            $produitsUniques[$produitId] = $produitItem->getIdproduit();
         }
     }
 
@@ -85,7 +99,7 @@ class ProduitcartController extends AbstractController
     ]);
 
     return $response;
-    }
+}
 
 
  
@@ -152,7 +166,13 @@ $prixEnYuan = $converter->convert($totalPrix, 'TND', 'CNY');
      //chercher le produit passe en parametre
      $produit = $this->getDoctrine()->getRepository(Produit::class)->find($idProduit);
 
-    
+    if($produit->getQuantite()==0)
+    {
+        $this->addFlash('error', 'Ce produit est indisponible pour le moment.');
+
+    }
+    else
+    {
      // Créer une nouvelle instance de Produitcart
      $produitCart = new Produitcart();
 
@@ -163,9 +183,10 @@ $prixEnYuan = $converter->convert($totalPrix, 'TND', 'CNY');
      // Enregistrer l'entité Produitcart
      $entityManager = $this->getDoctrine()->getManager();
      $entityManager->persist($produitCart);
-     $entityManager->flush();
-
+     $entityManager->flush(); 
+    }
      return $this->redirectToRoute('app_produit_front');
+   
  }
 
 

@@ -7,7 +7,7 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	<title>Profile</title>
+	<title>Compte</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="/front/assets/img/favicon.png">
@@ -69,50 +69,129 @@
 		<!-- end breadcrumb section -->
 		<!-- error section -->
 		<div class="full-height-section error-section">
-			<div class="full-height-tablecell">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 offset-lg-2 text-center">
-							
-							 <h1>User Profile</h1>
-  {% if message %}
-    <message>{{ message }}</message>
-    <a href="{{ path('user_enable_2fa') }}">Cliquez ici pour l'activer</a>
+    <div class="full-height-tablecell">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-left">
+                    {# 
+                    {% if message %}
+                        <message>{{ message }}</message>
+                        <a href="{{ path('user_enable_2fa') }}">Cliquez ici pour l'activer</a>
+                    {% endif %}
+                    #}
+                    <style>
+                        .user-info {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 20px;
+                        }
 
-{% endif %}
+                        .user-image {
+                            width: 140px; /* Taille de l'image */
+                            height: 140px; /* Taille de l'image */
+                            border-radius: 50%; /* Rendre l'image circulaire */
+                            object-fit: cover; /* Assure que l'image s'adapte bien dans le cercle */
+                            margin-right: 20px; /* Espace entre l'image et les coordonnées */
+                        }
 
-    <message>Connecté comme Client : <span>{{ user.nomuser }}</span> <span>{{ user.prenomuser }}</span> Email : <span>{{ user.emailuser }}</span></message>
+                        .user-details {
+                            display: flex;
+                            flex-direction: column; /* Affiche les coordonnées verticalement */
+                        }
 
-            <img src="{{ asset('images/' ~ user.image) }}" alt="User Image">
+                        .user-details span {
+                            margin-bottom: 5px; /* Espace entre les éléments de coordonnées */
+                        }
+  .form-group {
+                            margin-bottom: 15px; /* Espace entre les champs de formulaire */
+                        }
+
+                        input[type="password"] {
+                            width: 100%;
+                            padding: 10px;
+                            margin: 5px 0;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                            transition: all 0.3s ease;
+                        }
+
+                        input[type="password"]:focus {
+                            border-color: #5cb85c;
+                            box-shadow: 0 0 8px 0 rgba(92, 184, 92, 0.6);
+                        }
+
+                        button[type="submit"] {
+                            background-color: #5cb85c;
+                            color: white;
+                            padding: 10px 20px;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease;
+                        }
+
+                        button[type="submit"]:hover {
+                            background-color: #4cae4c;
+                        }
+
+                        .form-group label {
+                            display: block;
+                            margin-bottom: 5px;
+                            font-weight: bold;
+                        }
+						 .bold-text {
+                            font-weight: bold;
+                        }
+                    </style>
+                    
+                    <div class="user-info">
+                        <img src="{{ asset('images/' ~ user.image) }}" alt="User Image" class="user-image">
+                        <div class="user-details">
+                            <message>
+                                Connecté comme Client :
+                                <span class="bold-text">{{ user.nomuser }}</span> 
+                                <span class="bold-text">{{ user.prenomuser }}</span> <br>
+                                Email : 
+                                <span class="bold-text">{{ user.emailuser }}</span>
+                            </message>
+                        </div>
+                    </div>
+
+                    <form action="{{ path('user_update_image') }}" method="POST" enctype="multipart/form-data">
+                        <h2>Modifier votre photo ?</h2>
+                        <input type="file" name="image_file" required>
+                        <br><br>
+                        <input type="submit" value="Modifier">
+                    </form>
+
+                    <h2>Changer votre mot de passe ?</h2>
+
+                    <form action="{{ path('change_password') }}" method="post">
+                        <div class="form-group">
+                            <label for="old_password">Old Password:</label>
+                            <input type="password" id="old_password" name="old_password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="new_password">New Password:</label>
+                            <input type="password" id="new_password" name="new_password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm_password">Confirm Password:</label>
+                            <input type="password" id="confirm_password" name="confirm_password" required>
+                        </div>
+
+                        <input type="submit" value="Changer">
+
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-	 <form action="{{ path('user_update_image') }}" method="POST" enctype="multipart/form-data">
-                <h2>Update Profile Picture</h2>
-                <input type="file" name="image_file">
-                <br><br>
-                <input type="submit" value="Update">
-            </form>
-    <h2>Change Password</h2>
-
-    <form action="{{ path('change_password') }}" method="post">
-        <label for="old_password">Old Password:</label>
-        <input type="password" id="old_password" name="old_password" required>
-
-        <label for="new_password">New Password:</label>
-        <input type="password" id="new_password" name="new_password" required>
-
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" required>
-
-        <button type="submit">Change Password</button>
-    </form>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<!-- end error section -->
 		<!-- logo carousel -->
 		<div class="logo-carousel-section">
