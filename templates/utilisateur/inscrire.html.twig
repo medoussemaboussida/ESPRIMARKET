@@ -1,127 +1,86 @@
-{% extends 'fruitkha-1.0.0/base.html.twig' %}
-
-{% block body %}
-<head>
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="/front/assets/css/style.css">
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-</head>
-<style>
-.forms {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.form-content {
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200%; /* Adjust the width of the form content */
-    max-width: 1600px; /* Set maximum width for larger screens */
-}
-
-.signup-form {
-    text-align: center;
-}
-
-.signup-form .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.signup-form form {
-    margin-top: 20px;
-}
-
-.signup-form form label {
-    display: block;
-    margin-bottom: 8px;
-    text-align: left; /* Align labels to the left */
-}
-
-.signup-form form input[type="text"],
-.signup-form form input[type="email"],
-.signup-form form input[type="password"],
-.signup-form form input[type="tel"],
-.signup-form form input[type="file"] {
-    width: 100%; /* Set the width of the input fields to 100% */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.signup-form form button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.signup-form form button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.error-message {
-    color: #ff0000;
-    margin-top: 10px;
-}
-</style>
+           <title>Inscrire</title>
+        	<link rel="shortcut icon" type="image/png" href="/front/assets/img/favicon.png">
+   </head>
 <body>
-   
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="/front/assets/img/pp.jpeg" alt="">
+        <div class="text">
+          <span class="text-1"><br></span>
+          <span class="text-2"></span>
+        </div>
+      </div>
+      <div class="back">
+        <img class="backImg" src="/front/assets/img/backImg.jpg" alt="">
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+    </div>
+
      <div class="forms">
         <div class="form-content">
             <div class="signup-form">
-                <div class="title">Signup</div>
+<div class="title">Créer un nouveau compte </div>
 
-                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                
-                <div>
-                    <label for="nomuser">User name</label>
-                    {{ form_widget(form.nomuser) }}
+         {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            <div class="input-boxes">
+
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    {{ form_widget(form.nomuser, {'attr': {'placeholder': 'Nom', 'class': 'form-control'}}) }}
                     <div class="error">{{ form_errors(form.nomuser) }}</div>
                 </div>
-                
-                <div>
-                    <label for="prenomuser">User surname</label>
-                    {{ form_widget(form.prenomuser) }}
+
+                <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    {{ form_widget(form.prenomuser, {'attr': {'placeholder': 'Prénom', 'class': 'form-control'}}) }}
                     <div class="error">{{ form_errors(form.prenomuser) }}</div>
                 </div>
-                
-                <label for="emailuser">User email</label>
-                {{ form_widget(form.emailuser) }}
-                <div class="error">{{ form_errors(form.emailuser) }}</div>
-                
-                <label for="mdp">Password</label>
-                {{ form_widget(form.mdp) }}
-                <div class="error">{{ form_errors(form.mdp) }}</div>
-                
-                <label for="numtel">Phone number</label>
-                {{ form_widget(form.numtel) }}
-                <div class="error">{{ form_errors(form.numtel) }}</div>
-                
-                <label for="image">Image</label>
-                {{ form_row(form.image) }}
-                <div class="error">{{ form_errors(form.image) }}</div>
-                
-                <div class="button input-box">
-                    <button type="submit">Submit</button>
-                </div>
-                
-                {{ form_end(form) }}
-            </div>
-        </div>
-    </div>
 
+                <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    {{ form_widget(form.emailuser, {'attr': {'placeholder': 'Email', 'class': 'form-control'}}) }}
+                    <div class="error">{{ form_errors(form.emailuser) }}</div>
+                </div>
+
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    {{ form_widget(form.mdp, {'attr': {'placeholder': 'Mot de passe', 'class': 'form-control'}}) }}
+                    <div class="error">{{ form_errors(form.mdp) }}</div>
+                </div>
+
+                <div class="input-box">
+                    <i class="fas fa-phone"></i>
+                    {{ form_widget(form.numtel, {'attr': {'placeholder': 'Tél', 'class': 'form-control'}}) }}
+                    <div class="error">{{ form_errors(form.numtel) }}</div>
+                </div>
+
+              
+
+                <div class="button input-box">
+                    <input type="submit" value="Confrimer">
+                </div>
+
+                <div class="text sign-up-text"><a href="/login">Vous avez déjà un compte ? Login</div>
+            </div>
+            {{ form_end(form) }}
+     </div>
+    </div>
+    </div>
+  </div>
 </body>
-{% endblock %}
+</html>

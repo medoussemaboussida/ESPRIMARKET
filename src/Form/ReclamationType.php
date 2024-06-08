@@ -9,6 +9,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+
 class ReclamationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -24,11 +26,19 @@ class ReclamationType extends AbstractType
                 new NotBlank(),
             ],
         ])
-        ->add('date', null, [
+        ->add('date', DateType::class, [
+            'widget' => 'single_text',
+            'html5' => true,
             'constraints' => [
                 new NotBlank(),
                 new DateTime(),
             ],
+            'attr' => [
+                'class' => 'form-control',
+                'placeholder' => 'Select a date'
+            ],
+            'label' => 'Date',
+            'required' => true,
         ])
         ->add('email', null, [
             'constraints' => [

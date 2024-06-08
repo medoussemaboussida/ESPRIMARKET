@@ -7,7 +7,7 @@
 	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
 	<!-- title -->
-	<title>Produits</title>
+	<title>Réclamation</title>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="/front/assets/img/favicon.png">
@@ -135,8 +135,8 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Shop</h1>
+						<p>vous avez un probléme ?</p>
+						<h1>Réclamation</h1>
 					</div>
 				</div>
 			</div>
@@ -174,7 +174,7 @@
             {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Enter your name'}}) }}
             {{ form_errors(form.nom) }}
         </div>
-        <button type="submit" class="coupon-section">{{ button_label|default('Send') }}</button>
+        <a class="cart-btn">{{ button_label|default('Envoyer') }}</a>
         {{ form_end(form) }}
     </div>
 {% endblock %}

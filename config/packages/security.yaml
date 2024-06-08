@@ -26,6 +26,7 @@ security:
 
             logout: # Configuration de la déconnexion
                 path: app_logout # Chemin de la déconnexion
+                target: app_login 
                 # Ajoutez d'autres configurations de déconnexion si nécessaire
 
     # Contrôle d'accès pour les différentes parties de votre site

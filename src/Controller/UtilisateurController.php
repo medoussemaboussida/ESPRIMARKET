@@ -193,7 +193,7 @@ public function signup(Request $request, UserPasswordEncoderInterface $passwordE
     $form = $this->createForm(UtilisateurType::class, $utilisateur);
     $form->handleRequest($request);
 
-    // Check if the form is submitted and valid
+    /*// Check if the form is submitted and valid
     if ($form->isSubmitted() && $form->isValid()) {
         // Check if the "Send Code" button is clicked
         if ($form->get('sendCode')->isClicked()) {
@@ -216,13 +216,13 @@ public function signup(Request $request, UserPasswordEncoderInterface $passwordE
             // Store the verification code in session
             $session->set('verification_code', $verificationCode);
             $session->set('tel', $tel);
-        }
+        }*/
         
         // Handle verification code submission
-        $submittedVerificationCode = $form->get('verificationCode')->getData();
-        if ($submittedVerificationCode) {
-            $sessionVerificationCode = $session->get('verification_code');
-            if ($sessionVerificationCode && $sessionVerificationCode == $submittedVerificationCode) {
+      //  $submittedVerificationCode = $form->get('verificationCode')->getData();
+        if ($form->isSubmitted()) {
+         //   $sessionVerificationCode = $session->get('verification_code');
+         
                 // Verification code is correct, proceed with user creation
                 // Encrypt the password before persisting
                 $encodedPassword = $passwordEncoder->encodePassword($utilisateur, $utilisateur->getPassword());
@@ -231,13 +231,13 @@ public function signup(Request $request, UserPasswordEncoderInterface $passwordE
                 $utilisateur->setNbpoints('0');
                 
                 // handle image upload
-                $image = $form['image']->getData();
+               /* $image = $form['image']->getData();
                 $imagePath = $request->request->get('imagePath');
                 if ($image && is_uploaded_file($image)) {
                     $imageFileName = uniqid().'.'.$image->guessExtension();
                     move_uploaded_file($image, $this->getParameter('images_directory').'/'.$imageFileName);
                     $utilisateur->setImage($imageFileName);
-                }
+                }*/
                 
                 // Get the EntityManager
                 $entityManager = $this->getDoctrine()->getManager();
@@ -250,16 +250,13 @@ public function signup(Request $request, UserPasswordEncoderInterface $passwordE
 
                 // Redirect the user to the login page after successful signup
                 return $this->redirectToRoute('app_login');
-            } else {
-                // Invalid verification code, add an error to the form
-                $form->get('verificationCode')->addError(new FormError('Invalid verification code'));
             }
-        }
-    }
-
+    
     return $this->render('utilisateur/inscrire.html.twig', [
         'form' => $form->createView(),
     ]);
 }
 
+
 }
+

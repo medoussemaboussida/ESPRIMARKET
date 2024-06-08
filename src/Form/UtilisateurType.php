@@ -49,20 +49,7 @@ class UtilisateurType extends AbstractType
             ->add('numtel', TelType::class, [
                 'label' => 'Phone Number'
             ])
-            ->add('verificationCode', null, [
-                'mapped' => false,
-                'required' => true,
-                'label' => 'Code de vérification',
-            ])
-            ->add('sendCode', SubmitType::class, [
-                'label' => 'Envoyer le code',
-                'attr' => ['class' => 'btn btn-primary'],
-            ])
-            ->add('image', FileType::class, [
-                'label' => 'Image',
-                'mapped' => false,
-                'required' => false,
-            ]);
+          ;
             
     }
     public function validateUniqueEmail($email, ExecutionContextInterface $context): void

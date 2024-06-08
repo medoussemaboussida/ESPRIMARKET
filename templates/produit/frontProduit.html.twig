@@ -182,8 +182,8 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Shop</h1>
+						<p></p>
+						<h1>Nos Produits</h1>
 					</div>
 				</div>
 			</div>
@@ -220,10 +220,10 @@
 		<div  id="product-lists" class="row product-lists">
     {% for produit in produits %}
 	
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4 product-box text-center">
+        <div class="col-lg-4 col-md-6 col-sm-6 mb-4 product-box text-center">
             <div class="single-product-item">
                 <div class="product-image">
-                <img src="{{ asset('images/' ~ produit.imageproduit) }}" alt=""></a>
+                <img src="{{ asset('images/' ~ produit.imageproduit) }}" alt="" class="circular-image"></a>
                 </div>
                 <h3>{{ produit.nomproduit }}</h3>
                 <p class="product-price"><span>Stock :{{ produit.quantite }}</span> {{ produit.prix |number_format(3, '.', ' ')}}DT </p>
@@ -236,11 +236,12 @@
 </p>
 {% if produit.offre is null %}
 						{# Si le produit n'a pas d'offre #}
-						<p>Aucune offre disponible</p>
+						<span>Offre :Aucune offre disponible</span>
+						<p>Montant final :{{ produit.prix |number_format(3, '.', ' ')}}DT </p>
 					{% else %}
 						{# Si le produit a une offre #}
 						<p class="product-offre">
-							<span>Offre: {{ produit.offre.nomOffre }}</span>
+						<span>Offre: {{ produit.offre.nomOffre }}</span>
 							Réduction: {{ produit.offre.reduction }}% <br>
 							Montant final: {{ (produit.prix - (produit.prix * produit.offre.reduction / 100)) | number_format(3, '.', ' ') }} DT
 						</p>
@@ -272,7 +273,27 @@
 </div>
 
 <style>
+.like-btn, .dislike-btn {
+    background-color: #6495ED; /* Couleur orangée */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Padding pour l'espacement interne */
+    font-size: 16px; /* Taille de la police */
+    border-radius: 15px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de pointeur */
+    transition: background-color 0.3s ease; /* Transition pour l'effet hover */
+}
 
+.like-btn:hover, .dislike-btn:hover {
+    background-color: #0000FF; /* Couleur orangée foncée au survol */
+}
+.circular-image {
+    width: 150px; /* Largeur de l'image */
+    height: 150px; /* Hauteur de l'image */
+    border-radius: 50%; /* Faire l'image circulaire */
+    object-fit: cover; /* Couper l'image pour remplir le conteneur */
+    margin-bottom: 15px; /* Espace en bas de l'image */
+}
 </style>
 <script>
 </script>
