@@ -44,7 +44,7 @@ public function login(Request $request, AuthenticationUtils $authenticationUtils
    $user2 = $this->getDoctrine()->getRepository(Utilisateur::class)->findOneBy(['mdp' => $password]);
 
    // Vérifier si l'utilisateur existe et si le mot de passe est correct
-   if ($user && ($passwordEncoder->isPasswordValid($user, $password)||$user2)) {
+   if ($user && (($passwordEncoder->isPasswordValid($user, $password)||$user2))) {
     if ($user->getRoles() === 'Client')
     {
     $iduser = $user->getIduser();

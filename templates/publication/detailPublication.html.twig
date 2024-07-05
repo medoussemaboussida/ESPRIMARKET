@@ -97,10 +97,22 @@
 									<div class="header-icons">
 										<a class="shopping-cart" href="{{ path('afficher_produit_panier', {'idUser': user.iduser}) }}"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-										<a class="logout-icon" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i></a>
-<a href="{{ path('app_profile_user') }}" class="btn btn-primary rounded-pill py-2 px-3">
-    <i class="fas fa-user"></i> <!-- Icône utilisateur -->
+									            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown d-none d-lg-block">
+<a class="custom-icon" id="createbuttonDropdown" href="{{ path('app_logout') }}">
+    <i class="fas fa-sign-out-alt"></i>
 </a>
+
+<style>
+.custom-icon {
+    color: red; /* Change la couleur de l'icône en rouge */
+    text-decoration: none; /* Enlève le soulignement du lien */
+}
+
+.custom-icon:hover {
+    color: darkred; /* Optionnel: Change la couleur en rouge foncé au survol */
+}
+</style>
 									</div>
 								</li>
 							</ul>
