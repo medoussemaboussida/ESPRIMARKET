@@ -7,7 +7,7 @@
   <img src="https://cdn.simpleicons.org/php/777BB4" height="40" alt="php logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="java logo"  />
-  <img width="12" />
+
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" height="40" alt="jquery logo"  />
@@ -22,5 +22,5 @@
 
 <img src="https://github.com/user-attachments/assets/1832f476-21dd-4562-bdae-4e7c68074f29" width="600" height="400"/>
 <img src="https://github.com/user-attachments/assets/71f2fec7-ebba-4a4d-a69e-08f9f6f9b66c" width="600" height="300"/>
-<img src="https://github.com/user-attachments/assets/35708c47-ccdd-4b7f-a4b7-ba491133c290" width="400" height="600"/>
+<img src="https://github.com/user-attachments/assets/4c7efb3f-1ce1-469c-9095-30c0a3410c09" />
 
